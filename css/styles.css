@@ -1,0 +1,493 @@
+:root {
+  --bg-light: #ffffff;
+  --text-light: #000000;
+  --text-dark: #f8f8f8;
+  --primary: #d63384;
+  --accent: #6f42c1;
+}
+
+[data-theme="dark"] {
+  --bg-light: #2b0033;
+  --text-light: #f8f8f8;
+}
+
+/* === Base Styles === */
+body {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* === Sticky Blurred Navbar === */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animate shadow on scroll */
+.navbar.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar text and icons */
+.navbar .nav-link,
+.navbar .navbar-brand,
+.navbar .bi {
+  color: var(--text-light);
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.navbar .nav-link:hover {
+  color: var(--primary);
+  background-color: rgba(214, 51, 132, 0.1);
+  border-radius: 4px;
+}
+
+/* Active link highlight */
+.navbar .nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid var(--primary);
+}
+
+/* Dark mode navbar */
+[data-theme="dark"] .navbar {
+  background-color: rgba(43, 0, 51, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .navbar .nav-link,
+[data-theme="dark"] .navbar .navbar-brand,
+[data-theme="dark"] .navbar .bi {
+  color: var(--accent);
+}
+
+[data-theme="dark"] .navbar .nav-link.active {
+  border-bottom: 2px solid var(--accent);
+  font-weight: bold;
+}
+
+/* === Video Background === */
+.video-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.video-bg .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(214,51,132,0.3));
+}
+
+/* === Hero Section === */
+.hero {
+  height: 100vh;
+  padding-top: 80px;
+  position: relative;
+  z-index: 1;
+}
+.hero-content {
+  z-index: 2;
+  position: relative;
+}
+.text-pink {
+  color: var(--primary);
+}
+.btn-pink {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.btn-pink:hover {
+  background-color: #c2186b;
+}
+
+/* === Impact Section === */
+.impact-section {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+[data-theme="dark"] .impact-section {
+  background-color: #3a003f !important;
+  color: var(--text-dark);
+}
+.counter {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* === Scroll to Top Button === */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 14px;
+  font-size: 1.2rem;
+  display: none;
+  z-index: 999;
+}
+.scroll-top:hover {
+  background-color: #c2186b;
+}
+
+/* === Typing Animation === */
+#typedText {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* === About Hero === */
+.about-hero {
+  height: 60vh;
+  background: linear-gradient(to right, #d63384, #6f42c1);
+  color: white;
+}
+
+/* === Mission Section === */
+.mission-section {
+  background-color: #ffffff;
+  color: var(--text-light);
+}
+[data-theme="dark"] .mission-section {
+  background-color: #1a001f;
+  color: #f0e6ff;
+}
+
+/* === Core Values === */
+.values-section {
+  background-color: #f8f9fa;
+}
+[data-theme="dark"] .values-section {
+  background-color: #2b0033;
+  color: var(--text-dark);
+}
+.value-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.value-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--primary);
+  color: white;
+}
+[data-theme="dark"] .value-card {
+  background-color: #3a003f;
+}
+[data-theme="dark"] .value-card:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* === Founder's Message === */
+.founder-message {
+  background-color: #fefefe;
+}
+[data-theme="dark"] .founder-message {
+  background-color: #2b0033;
+  color: var(--text-dark);
+}
+
+/* === Timeline === */
+.timeline-section {
+  background-color: #fff;
+}
+[data-theme="dark"] .timeline-section {
+  background-color: #1a001f;
+  color: var(--text-dark);
+}
+.timeline {
+  border-left: 3px solid var(--primary);
+  padding-left: 20px;
+}
+.timeline-item {
+  margin-bottom: 20px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.timeline-item span {
+  font-weight: bold;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 5px;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+
+/* === Team Section === */
+.team-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.team-card:hover {
+  transform: scale(1.05);
+}
+[data-theme="dark"] .team-card {
+  background-color: #3a003f;
+  color: var(--text-dark);
+}
+
+/* === Quote Carousel === */
+.quote-carousel {
+  background-color: #f8f9fa;
+}
+[data-theme="dark"] .quote-carousel {
+  background-color: #2b0033;
+  color: var(--text-dark);
+}
+
+/* === Pillars Section === */
+.pillars-section {
+  background-color: #fff;
+}
+[data-theme="dark"] .pillars-section {
+  background-color: #1a001f;
+  color: var(--text-dark);
+}
+.pillar-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.pillar-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--primary);
+  color: white;
+}
+[data-theme="dark"] .pillar-card {
+  background-color: #3a003f;
+}
+[data-theme="dark"] .pillar-card:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* === Comparison Section === */
+.comparison-section {
+  background-color: #fefefe;
+}
+[data-theme="dark"] .comparison-section {
+  background-color: #2b0033;
+  color: var(--text-dark);
+}
+
+/* === CTA Section === */
+.cta-section {
+  background-color: #d63384;
+  color: white;
+}
+.cta-section .btn-pink {
+  background-color: white;
+  color: var(--primary);
+  font-weight: bold;
+}
+.cta-section .btn-pink:hover {
+  background-color: #f8f8f8;
+}
+
+
+/* === Program Cards === */
+.program-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+[data-theme="dark"] .program-card {
+  background-color: #3a003f;
+  color: #f0e6ff;
+}
+[data-theme="dark"] .program-card:hover {
+  box-shadow: 0 6px 16px rgba(255,255,255,0.1);
+}
+
+/* === Filter Buttons === */
+.filter-btn {
+  margin: 6px;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.filter-btn.active {
+  background-color: #d63384;
+  color: #fff;
+  border: none;
+}
+[data-theme="dark"] .filter-btn {
+  background-color: transparent;
+  color: #f0e6ff;
+  border-color: #f0e6ff;
+}
+[data-theme="dark"] .filter-btn.active {
+  background-color: #d63384;
+  color: #fff;
+}
+
+/* === Quote Carousel === */
+.quote-carousel {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+}
+.quote-carousel p {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #6f42c1;
+}
+[data-theme="dark"] .quote-carousel {
+  background-color: #2b0033;
+}
+[data-theme="dark"] .quote-carousel p {
+  color: #f0e6ff;
+}
+
+/* === Modal === */
+.modal-content {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+}
+.modal-title {
+  color: #d63384;
+}
+[data-theme="dark"] .modal-content {
+  background-color: #3a003f;
+  color: #f0e6ff;
+}
+[data-theme="dark"] .modal-title {
+  color: #f0e6ff;
+}
+.modal-body ul {
+  padding-left: 20px;
+}
+.modal-body ul li {
+  margin-bottom: 6px;
+}
+
+/* === Map Section === */
+.map-section {
+  background-color: #fefefe;
+  padding: 40px 0;
+}
+.map-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.map-section p {
+  font-size: 1rem;
+  color: #6f42c1;
+}
+[data-theme="dark"] .map-section {
+  background-color: #2b0033;
+}
+[data-theme="dark"] .map-section p {
+  color: #f0e6ff;
+}
+
+/* === Story Cards === */
+.story-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+.story-card:hover {
+  transform: translateY(-6px);
+}
+[data-theme="dark"] .story-card {
+  background-color: #3a003f;
+  color: #f0e6ff;
+}
+
+/* === Modal === */
+.modal-content {
+  background-color: #fff;
+}
+[data-theme="dark"] .modal-content {
+  background-color: #3a003f;
+  color: #f0e6ff;
+}
+
+
+/* === Contact Form === */
+.contact-form-section input,
+.contact-form-section textarea,
+.contact-form-section select {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.contact-form-section .btn-pink {
+  background-color: #d63384;
+  color: white;
+  border: none;
+}
+.contact-form-section .btn-pink:hover {
+  background-color: #c2186b;
+}
+[data-theme="dark"] .contact-form-section input,
+[data-theme="dark"] .contact-form-section textarea,
+[data-theme="dark"] .contact-form-section select {
+  background-color: #3a003f;
+  color: #f0e6ff;
+  border: 1px solid #666;
+}
+
