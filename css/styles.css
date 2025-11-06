@@ -171,6 +171,20 @@ body {
   background: linear-gradient(to right, #d63384, #6f42c1);
   color: white;
 }
+.team-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 4px solid #d63384;
+}
+
+.pillar-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pillar-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
 
 /* === Mission Section === */
 .mission-section {
@@ -223,42 +237,66 @@ body {
 /* === Timeline === */
 .timeline-section {
   background-color: #fff;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 [data-theme="dark"] .timeline-section {
   background-color: #1a001f;
   color: var(--text-dark);
 }
+
 .timeline {
-  border-left: 3px solid var(--primary);
-  padding-left: 20px;
-}
-.timeline-item {
-  margin-bottom: 20px;
   position: relative;
+  border-left: 4px solid var(--primary);
+  padding-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 10px;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
   transition: all 0.6s ease;
 }
+
 .timeline-item.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 .timeline-item span {
-  font-weight: bold;
+  font-weight: 600;
   color: var(--primary);
+  font-size: 1rem;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
+
+.timeline-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: -11px;
+  left: -18px;
   top: 5px;
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   background-color: var(--primary);
+  border: 3px solid #fff;
   border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(214, 51, 132, 0.2);
+  transition: transform 0.3s ease;
 }
+
+.timeline-item.visible::before {
+  transform: scale(1.1);
+}
+
 
 /* === Team Section === */
 .team-card {
@@ -421,6 +459,13 @@ body {
   margin-bottom: 6px;
 }
 
+.program-card img.program-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 /* === Map Section === */
 .map-section {
   background-color: #fefefe;
@@ -457,6 +502,14 @@ body {
   background-color: #3a003f;
   color: #f0e6ff;
 }
+
+.story-card img.story-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 
 /* === Modal === */
 .modal-content {

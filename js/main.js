@@ -59,7 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
   waitForToggleButton();
   typeLoop("MASENO GIRLCHILD EMPOWERMENT", "typedText");
 
-  // Counter animation
+  const path = window.location.pathname;
+
+if (path.includes("index") || path.includes("stories")|| path.includes("home") || path.includes("programs")) {
   document.querySelectorAll(".counter").forEach(counter => {
     const target = +counter.dataset.target;
     let count = 0;
@@ -74,9 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     update();
   });
+}
 
 
-  // === Stories Page Logic ===
+
+ // === Stories Page Logic ===
 const storyContainer = document.getElementById("storyContainer");
 if (storyContainer) {
   const stories = [
@@ -84,19 +88,22 @@ if (storyContainer) {
       title: "Faith’s First Speech",
       category: "leadership",
       quote: "I never thought I could speak in public.",
-      full: "Faith joined MGCE’s bootcamp in 2023. She overcame her fear and gave her first speech at a school assembly. Today, she mentors others."
+      full: "Faith joined MGCE’s bootcamp in 2023. She overcame her fear and gave her first speech at a school assembly. Today, she mentors others.",
+      img: "images/stories/faith.jpg"
     },
     {
       title: "Linet’s Literacy Journey",
       category: "education",
       quote: "Books opened my world.",
-      full: "Linet struggled with reading until she joined MGCE’s Literacy Labs. Now she reads to younger girls every weekend."
+      full: "Linet struggled with reading until she joined MGCE’s Literacy Labs. Now she reads to younger girls every weekend.",
+      img: "images/stories/linet.jpg"
     },
     {
       title: "Jane’s Mentorship Circle",
       category: "mentorship",
       quote: "We lift each other up.",
-      full: "Jane started a peer mentorship group in her village. The circle now supports 20 girls through school and emotional challenges."
+      full: "Jane started a peer mentorship group in her village. The circle now supports 20 girls through school and emotional challenges.",
+      img: "images/stories/jane.jpg"
     }
   ];
 
@@ -112,6 +119,7 @@ if (storyContainer) {
       card.className = "col-md-4";
       card.innerHTML = `
         <div class="story-card p-3" data-title="${s.title}">
+          <img src="${s.img}" alt="${s.title}" class="img-fluid rounded mb-3 story-img">
           <h5>${s.title}</h5>
           <p class="fst-italic">“${s.quote}”</p>
           <span class="badge bg-secondary">${s.category}</span>
@@ -143,7 +151,6 @@ if (storyContainer) {
     });
   });
 }
-
 
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
@@ -188,6 +195,20 @@ if (contactForm) {
     });
   }
 
+  document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".timeline-item");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.3 });
+
+  items.forEach(item => observer.observe(item));
+});
+
+
   // Quote carousel
   const quotes = [
     "“MGCE helped me find my voice.”",
@@ -205,95 +226,126 @@ if (contactForm) {
   }
 
   // === Programs Page Logic ===
-  const container = document.getElementById("programContainer");
-  if (container) {
-    const programs = [
-      { title: "Mentor Circles", category: "mentorship", desc: "Peer-led mentorship groups for girls aged 13–18." },
-      { title: "Health Talks", category: "health", desc: "Workshops on menstrual health, hygiene, and wellness." },
-      { title: "Leadership Bootcamp", category: "leadership", desc: "Intensive training for emerging girl leaders." },
-      { title: "STEM for Girls", category: "education", desc: "Hands-on coding and science projects." },
-      { title: "Community Advocacy", category: "leadership", desc: "Girls lead local campaigns for change." },
-      { title: "Literacy Labs", category: "education", desc: "Reading and writing support in rural schools." }
-    ];
-
-    const programDetails = {
-      "Mentor Circles": {
-        desc: "Peer-led mentorship groups for girls aged 13–18, focused on confidence, communication, and support.",
-        goals: ["Build self-esteem", "Create safe spaces", "Train peer mentors"],
-        pdf: "pdfs/mentor-circles.pdf"
-      },
-      "Health Talks": {
-        desc: "Workshops on menstrual health, hygiene, and wellness led by trained facilitators.",
-        goals: ["Normalize health conversations", "Distribute supplies", "Empower through knowledge"],
-        pdf: "pdfs/health-talks.pdf"
-      },
-      "Leadership Bootcamp": {
-        desc: "Intensive training for emerging girl leaders in schools and communities.",
-        goals: ["Develop leadership skills", "Foster public speaking", "Encourage civic action"],
-        pdf: "pdfs/leadership-bootcamp.pdf"
-      },
-      "STEM for Girls": {
-        desc: "Hands-on coding and science projects to spark interest in STEM careers.",
-        goals: ["Introduce coding", "Promote science literacy", "Break gender stereotypes"],
-        pdf: "pdfs/stem-for-girls.pdf"
-      },
-      "Community Advocacy": {
-        desc: "Girls lead local campaigns for change, from sanitation to school access.",
-        goals: ["Train advocates", "Run campaigns", "Engage local leaders"],
-        pdf: "pdfs/community-advocacy.pdf"
-      },
-      "Literacy Labs": {
-        desc: "Reading and writing support in rural schools with volunteer mentors.",
-        goals: ["Improve literacy", "Support teachers", "Create reading culture"],
-        pdf: "pdfs/literacy-labs.pdf"
-      }
-    };
-
-    const modal = new bootstrap.Modal(document.getElementById("programModal"));
-    const modalTitle = document.getElementById("modalTitle");
-    const modalDesc = document.getElementById("modalDesc");
-    const modalGoals = document.getElementById("modalGoals");
-    const modalDownload = document.getElementById("modalDownload");
-
-    function renderPrograms(filter = "all") {
-      container.innerHTML = "";
-      const filtered = filter === "all" ? programs : programs.filter(p => p.category === filter);
-      filtered.forEach(p => {
-        const card = document.createElement("div");
-        card.className = "col-md-4 program-card-wrapper";
-        card.innerHTML = `
-          <div class="program-card" data-title="${p.title}">
-            <h5>${p.title}</h5>
-            <p>${p.desc}</p>
-            <span class="badge bg-secondary">${p.category}</span>
-            <button class="btn btn-sm btn-outline-primary mt-2">Learn More</button>
-          </div>
-        `;
-        container.appendChild(card);
-      });
-
-      document.querySelectorAll(".program-card button").forEach(btn => {
-        btn.addEventListener("click", e => {
-          const title = e.target.closest(".program-card").dataset.title;
-          const detail = programDetails[title];
-          if (!detail) return;
-          modalTitle.textContent = title;
-          modalDesc.textContent = detail.desc;
-          modalGoals.innerHTML = detail.goals.map(g => `<li>${g}</li>`).join("");
-          modalDownload.href = detail.pdf;
-          modal.show();
-        });
-      });
+const container = document.getElementById("programContainer");
+if (container) {
+  const programs = [
+    {
+      title: "Mentor Circles",
+      category: "mentorship",
+      desc: "Peer-led mentorship groups for girls aged 13–18.",
+      img: "images/programs/mentor-circles.jpg"
+    },
+    {
+      title: "Health Talks",
+      category: "health",
+      desc: "Workshops on menstrual health, hygiene, and wellness.",
+      img: "images/programs/health-talks.jpg"
+    },
+    {
+      title: "Leadership Bootcamp",
+      category: "leadership",
+      desc: "Intensive training for emerging girl leaders.",
+      img: "images/programs/leadership-bootcamp.jpg"
+    },
+    {
+      title: "STEM for Girls",
+      category: "education",
+      desc: "Hands-on coding and science projects.",
+      img: "images/programs/stem-for-girls.jpg"
+    },
+    {
+      title: "Community Advocacy",
+      category: "leadership",
+      desc: "Girls lead local campaigns for change.",
+      img: "images/programs/community-advocacy.jpg"
+    },
+    {
+      title: "Literacy Labs",
+      category: "education",
+      desc: "Reading and writing support in rural schools.",
+      img: "images/programs/literacy-labs.jpg"
     }
+  ];
 
-    renderPrograms();
+  const programDetails = {
+    "Mentor Circles": {
+      desc: "Peer-led mentorship groups for girls aged 13–18, focused on confidence, communication, and support.",
+      goals: ["Build self-esteem", "Create safe spaces", "Train peer mentors"],
+      pdf: "pdfs/mentor-circles.pdf"
+    },
+    "Health Talks": {
+      desc: "Workshops on menstrual health, hygiene, and wellness led by trained facilitators.",
+      goals: ["Normalize health conversations", "Distribute supplies", "Empower through knowledge"],
+      pdf: "pdfs/health-talks.pdf"
+    },
+    "Leadership Bootcamp": {
+      desc: "Intensive training for emerging girl leaders in schools and communities.",
+      goals: ["Develop leadership skills", "Foster public speaking", "Encourage civic action"],
+      pdf: "pdfs/leadership-bootcamp.pdf"
+    },
+    "STEM for Girls": {
+      desc: "Hands-on coding and science projects to spark interest in STEM careers.",
+      goals: ["Introduce coding", "Promote science literacy", "Break gender stereotypes"],
+      pdf: "pdfs/stem-for-girls.pdf"
+    },
+    "Community Advocacy": {
+      desc: "Girls lead local campaigns for change, from sanitation to school access.",
+      goals: ["Train advocates", "Run campaigns", "Engage local leaders"],
+      pdf: "pdfs/community-advocacy.pdf"
+    },
+    "Literacy Labs": {
+      desc: "Reading and writing support in rural schools with volunteer mentors.",
+      goals: ["Improve literacy", "Support teachers", "Create reading culture"],
+      pdf: "pdfs/literacy-labs.pdf"
+    }
+  };
 
-    document.querySelectorAll(".filter-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderPrograms(btn.dataset.filter);
+  const modal = new bootstrap.Modal(document.getElementById("programModal"));
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDesc = document.getElementById("modalDesc");
+  const modalGoals = document.getElementById("modalGoals");
+  const modalDownload = document.getElementById("modalDownload");
+
+  function renderPrograms(filter = "all") {
+    container.innerHTML = "";
+    const filtered = filter === "all" ? programs : programs.filter(p => p.category === filter);
+    filtered.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "col-md-4 program-card-wrapper";
+      card.innerHTML = `
+        <div class="program-card" data-title="${p.title}">
+          <img src="${p.img}" alt="${p.title}" class="img-fluid rounded mb-3 program-img">
+          <h5>${p.title}</h5>
+          <p>${p.desc}</p>
+          <span class="badge bg-secondary">${p.category}</span>
+          <button class="btn btn-sm btn-outline-primary mt-2">Learn More</button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    document.querySelectorAll(".program-card button").forEach(btn => {
+      btn.addEventListener("click", e => {
+        const title = e.target.closest(".program-card").dataset.title;
+        const detail = programDetails[title];
+        if (!detail) return;
+        modalTitle.textContent = title;
+        modalDesc.textContent = detail.desc;
+        modalGoals.innerHTML = detail.goals.map(g => `<li>${g}</li>`).join("");
+        modalDownload.href = detail.pdf;
+        modal.show();
       });
     });
   }
+
+  renderPrograms();
+
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderPrograms(btn.dataset.filter);
+    });
+  });
+}
 });
