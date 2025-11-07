@@ -88,22 +88,22 @@ if (storyContainer) {
       title: "Faith’s First Speech",
       category: "leadership",
       quote: "I never thought I could speak in public.",
-      full: "Faith joined MGCE’s bootcamp in 2023. She overcame her fear and gave her first speech at a school assembly. Today, she mentors others.",
-      img: "images/stories/faith.jpg"
+      full: "Faith joined MGCE’s bootcamp in 2025. She overcame her fear and gave her first speech at a school assembly. Today, she mentors others.",
+      img: "assets/images/stories/ivy.png"
     },
     {
       title: "Linet’s Literacy Journey",
       category: "education",
       quote: "Books opened my world.",
       full: "Linet struggled with reading until she joined MGCE’s Literacy Labs. Now she reads to younger girls every weekend.",
-      img: "images/stories/linet.jpg"
+      img: "assets/images/stories/jane.png"
     },
     {
       title: "Jane’s Mentorship Circle",
       category: "mentorship",
       quote: "We lift each other up.",
       full: "Jane started a peer mentorship group in her village. The circle now supports 20 girls through school and emotional challenges.",
-      img: "images/stories/jane.jpg"
+      img: "assets/images/stories/emp1.png"
     }
   ];
 
@@ -233,43 +233,43 @@ if (container) {
       title: "Mentor Circles",
       category: "mentorship",
       desc: "Peer-led mentorship groups for girls aged 13–18.",
-      img: "images/programs/mentor-circles.jpg"
+      img: "assets/images/programs/pr1.png"
     },
     {
       title: "Health Talks",
       category: "health",
       desc: "Workshops on menstrual health, hygiene, and wellness.",
-      img: "images/programs/health-talks.jpg"
+      img: "assets/images/programs/pr2.png"
     },
     {
       title: "Leadership Bootcamp",
       category: "leadership",
       desc: "Intensive training for emerging girl leaders.",
-      img: "images/programs/leadership-bootcamp.jpg"
+      img: "assets/images/programs/pr3.png"
     },
     {
       title: "STEM for Girls",
       category: "education",
       desc: "Hands-on coding and science projects.",
-      img: "images/programs/stem-for-girls.jpg"
+      img: "assets/images/programs/pr4.png"
     },
     {
       title: "Community Advocacy",
       category: "leadership",
       desc: "Girls lead local campaigns for change.",
-      img: "images/programs/community-advocacy.jpg"
+      img: "assets/images/programs/pr5.png"
     },
     {
       title: "Literacy Labs",
       category: "education",
       desc: "Reading and writing support in rural schools.",
-      img: "images/programs/literacy-labs.jpg"
+      img: "assets/images/programs/pr6.png"
     }
   ];
 
   const programDetails = {
     "Mentor Circles": {
-      desc: "Peer-led mentorship groups for girls aged 13–18, focused on confidence, communication, and support.",
+      desc: "Peer-led mentorship groups for girls aged 17–24, focused on confidence, communication, and support.",
       goals: ["Build self-esteem", "Create safe spaces", "Train peer mentors"],
       pdf: "pdfs/mentor-circles.pdf"
     },

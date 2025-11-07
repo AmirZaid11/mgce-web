@@ -13,13 +13,24 @@
   <!-- Navbar -->
   <div id="navbar"></div>
 
-  <!-- Hero -->
-  <section class="hero about-hero text-center text-white d-flex align-items-center justify-content-center">
-    <div class="container">
-      <h1 class="display-4 fw-bold">Stories of Impact</h1>
-      <p class="lead">Real voices. Real change. From Maseno to the world.</p>
-    </div>
-  </section>
+ <!-- Hero with Video Background -->
+<section class="hero about-hero position-relative text-white d-flex align-items-center justify-content-center">
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="assets/video/g3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Gradient Overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Content -->
+  <div class="container position-relative text-center">
+    <h1 class="display-4 fw-bold">Stories of Impact</h1>
+    <p class="lead">Real voices. Real change. From Maseno to the world.</p>
+  </div>
+</section>
+
 
   <!-- Filter Buttons -->
   <section class="py-4 text-center filter-section">
