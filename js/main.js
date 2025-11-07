@@ -103,7 +103,7 @@ if (storyContainer) {
       category: "mentorship",
       quote: "We lift each other up.",
       full: "Jane started a peer mentorship group in her village. The circle now supports 20 girls through school and emotional challenges.",
-      img: "assets/images/stories/emp1.png"
+      img: "assets/images/stories/emp1.jpg"
     }
   ];
 
