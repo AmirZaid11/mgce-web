@@ -630,3 +630,46 @@ body {
   50% { opacity: 0.6; transform: translateY(5px); }
 }
 
+
+.emergency-banner {
+  width: 100%;
+  background-color: #D50000;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  animation: flicker 1.2s infinite;
+  z-index: 999;
+  position: relative;
+}
+
+.flicker-text {
+  animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.movement-cta {
+  margin: 20px 0;
+}
+
+.btn-movement {
+  font-weight: bold;
+  padding: 12px 28px;
+  border-radius: 30px;
+  background: linear-gradient(to right, #4A148C, #880E4F);
+  color: white;
+  border: 2px solid #CE93D8;
+  box-shadow: 0 0 12px #BA68C8;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-movement:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #E1BEE7;
+}
+

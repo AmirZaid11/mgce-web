@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MGCE Movement – 21st November</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body 
+    {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #4A148C, #880E4F);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .emergency-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  background-color: #D50000;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  animation: flicker 1.2s infinite;
+  z-index: 500; /* lowered from 9999 */
+  pointer-events: none; /* allows clicks to pass through */
+}
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background: rgba(237, 2, 245, 0.6);
+      backdrop-filter: blur(8px);
+      margin-top: 50px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    p.lead {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      animation: fadeIn 2s ease;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeIn 2.5s ease;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn-join { background-color: #F06292; color: white; }
+    .btn-share { background-color: #fc72e5; color: black; }
+    .btn-learn { background-color: transparent; border: 2px solid white; color: white; }
+
+    .countdown {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      animation: fadeInUp 2.5s ease;
+    }
+
+    .supporter-count {
+      margin-top: 10px;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .message, .testimonials {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      animation: fadeInUp 2s ease;
+    }
+
+    .share-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .share-buttons a {
+      background: white;
+      color: #880E4F;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .testimonials p {
+      font-style: italic;
+      margin-bottom: 10px;
+      animation: fadeInUp 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .btn { font-size: 0.9rem; padding: 10px 18px; }
+      .share-buttons a { font-size: 0.8rem; padding: 6px 12px; }
+    }
+
+    .testimonials {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  animation: fadeInUp 2s ease;
+}
+
+.testimonial-card {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-left: 4px solid #F06292;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: right;
+  color: #f137e8;
+}
+.footer-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #F06292;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  animation: flicker 1.5s infinite;
+  z-index: 9999;
+}
+.footer-banner a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(186, 104, 200, 0.8); /* light purple overlay */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  position: absolute;
+  bottom: 60px; /* adjust to float above button */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f3e5f5;
+  border: 2px solid #BA68C8;
+  box-shadow: 0 0 15px #CE93D8;
+  padding: 25px;
+  border-radius: 16px;
+  max-width: 400px;
+  text-align: center;
+  color: #4A148C;
+  display: none;
+  z-index: 10;
+  animation: fadeInUp 0.5s ease;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #6A1B9A;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 6px #BA68C8;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+  </style>
+</head>
+<body>
+<div id="navbar"></div>
+
+  <!-- Emergency Banner -->
+  <div id="emergencyBanner" class="emergency-banner">
+    🚨 21st Nov: Stand with South Africa Against GBV 🚨
+  </div>
+ <!-- Navbar -->
+  
+
+  
+  <div class="hero">
+    <h1>21st November – Maseno GirlChild Empowerment Rises for GBV💜🟣</h1>
+    <p class="lead">Maseno Girlchild Empowerment stands in solidarity against GBV and femicide.</p>
+    <div class="btn-group">
+      <a href="https://www.change.org/p/declare-gbvf-a-national-disaster-in-south-africa" class="btn btn-join">Sign the Petition</a>
+      <button class="btn btn-share" onclick="shareMovement()">Share Your Voice</button>
+      <button class="btn btn-share">
+              <a href="https://mgce.netlify.app/" class="btn btn-share">Learn More</a></button>
+    </div>
+    <div class="countdown" id="countdown"></div>
+    <div class="supporter-count">
+  👥 <span id="supporterCount">1,284</span> voices raised
+</div>
+
+  </div>
+
+  <div class="message">
+    <h3>✊ Solidarity Message</h3>
+    <p id="msg-en">“From Maseno to Cape Town, our voices rise. Femicide is not a tragedy—it’s a crime...”</p>
+    <p id="msg-sw" style="display:none;">“Kutoka Maseno hadi Cape Town, tunapaza sauti. Mauaji ya wanawake si ajali—ni uhalifu...”</p>
+    <p id="msg-zu" style="display:none;">“Sivela eMaseno siya eKapa, amazwi ethu ayakhuluma. Ubulahlwa kwabantu besifazane...”</p>
+    <div style="text-align:center; margin-top:10px;">
+      <button onclick="toggleLang('en')" class="btn btn-learn">English</button>
+      <button onclick="toggleLang('sw')" class="btn btn-learn">Kiswahili</button>
+      <button onclick="toggleLang('zu')" class="btn btn-learn">IsiZulu</button>
+    </div>
+    
+  </div>
+
+  <div class="testimonials">
+  <h3>🗣 Voices of Solidarity</h3>
+
+  <div class="testimonial-card">
+    <p class="quote">“I’m a nineteen year old Swazi, living in India.
+         I was raped by my sister ( mom’s sisters child) from ages 5 to 12. I told my grandmother and she did nothing but punish me and make me sleep outside instead. From then onwards I was despised. It hurts to see that women everyday are suffering in Silence. 
+        Justice for all victims and let’s stop GBV!!!!!”</p>
+    <p class="author">– Lolwami, India</p>
+  </div>
+
+  <div class="testimonial-card">
+    <p class="quote">“GBV is like a worm eating deeply into our society. No one should live in fear of what comes next.”</p>
+    <p class="author">– Stephanie, Cape Town</p>
+  </div>
+
+  <div class="testimonial-card">
+    <p class="quote">“I was too scared to speak. I just want others to be heard. No one should have to live in fear.”</p>
+    <p class="author">– Rodas, Nairobi</p>
+  </div>
+
+  <div class="testimonial-card">
+    <p class="quote">“For my sisters, my mother, my grandmother, my nieces, my friends, and the many women that deserve protection and so much more. For the victims and for the women with bright futures ahead.
+         No deserves to harmed because someone couldn’t accept that no means no”</p>
+    <p class="author">– Amir, Kenya</p>
+  </div>
+<div class="contribute text-center" style="position: relative;">
+  <h3>💝 Contribute to the Movement</h3>
+  <p>Support Maseno Girlchild Empowerment with your donation. Every shilling helps amplify voices and protect futures.</p>
+
+  <!-- Movement Button -->
+  <button class="btn btn-share" onclick="showContributionPopup()">Contribute Now</button>
+
+  <!-- Popup Positioned Above Button -->
+  <div id="contributionPopup" class="popup-box">
+    <span class="close-icon" onclick="closeContributionPopup()">×</span>
+    <h4>💝 MGCE Contribution</h4>
+    <p>Send any amount you have to <strong>0113597081 (MARTHA OMOLO)</strong>.</p>
+    <p>Thanks for standing with MGCE.</p>
+    <p>📞 For more enquiries, contact us:<br>
+      +254797938685 | +254112459577
+    </p>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+
+<div class="share-buttons">
+      <a href="https://wa.me/?text=Join%20MGCE%20Movement%20to%20End%20GBV%20on%2021st%20Nov%20%23Usikimye" target="_blank">WhatsApp</a>
+      <a href="https://twitter.com/intent/tweet?text=Join%20MGCE%20Movement%20to%20End%20GBV%20on%2021st%20Nov%20%23Usikimye" target="_blank">X (Twitter)</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://mgce.org/movement" target="_blank">Facebook</a>
+    </div>
+
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" class="scroll-top"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/include.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function toggleLang(lang) {
+      document.getElementById('msg-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('msg-sw').style.display = lang === 'sw' ? 'block' : 'none';
+      document.getElementById('msg-zu').style.display = lang === 'zu' ? 'block' : 'none';
+    }
+
+    function shareMovement() {
+      alert("Click Contribute now to Get our Contacts");
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    const countdownEl = document.getElementById('countdown');
+    const bannerEl = document.getElementById('emergencyBanner');
+    const targetDate = new Date('2025-11-21T23:59:59');
+
+   function updateCountdown() {
+  const now = new Date();
+  const diff = targetDate - now;
+
+  if (diff <= 0) {
+    // Redirect after expiry
+    window.location.href = "femicide.html";
+    return;
+  }
+
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  countdownEl.textContent = `⏳ Time left: ${hours}h ${minutes}m ${seconds}s`;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Auto-hide banner after 21st
+if (new Date() > targetDate) {
+  bannerEl.style.display = 'none';
+}
+
+// Offline fallback
+window.addEventListener('offline', () => {
+  document.body.innerHTML = `
+    <div style="height:100vh;display:flex;justify-content:center;align-items:center;background:#212121;color:white;text-align:center;padding:20px;">
+      <h2>You’re offline, but still part of the movement. Stay strong. ✊</h2>
+    </div>`;
+});
+// Scroll reveal animation
+const revealElements = document.querySelectorAll('.message, .testimonials');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeInUp 1.5s ease forwards';
+      observer.unobserve(entry.target); // animate once
+    }
+  });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => {
+  el.style.opacity = 0;
+  observer.observe(el);
+});
+
+let count = 335;
+const supporterCountEl = document.getElementById('supporterCount');
+
+function animateSupporterCount() {
+  count += Math.floor(Math.random() * 3); // simulate 1–2 new supporters
+  supporterCountEl.textContent = count.toLocaleString();
+}
+setInterval(animateSupporterCount, 4000); // update every 4 seconds
+
+    </script>
+    <script>
+  fetch('partials/navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Navbar failed to load:', error);
+    });
+
+    function showContributionPopup() {
+  document.getElementById('contributionPopup').style.display = 'block';
+}
+
+function closeContributionPopup() {
+  document.getElementById('contributionPopup').style.display = 'none';
+}
+
+
+</script>
+
+</body> 
+</html>
