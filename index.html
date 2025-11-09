@@ -50,10 +50,16 @@
       </div>
     </div>
   </section>
-  <!-- Fullscreen Image Popup -->
-<div id="fullscreenPopup" class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-dark" style="z-index: 1055; display: none;">
-  <img src="assets/images/image.png" alt="Campaign Image" class="img-fluid w-100 h-100 object-fit-cover">
+ <!-- Fullscreen Image Popup with Scroll -->
+<div id="fullscreenPopup" class="fullscreen-popup">
+  <div class="popup-content">
+    <img src="assets/images/image.png" alt="Campaign Image" class="popup-img">
+    <button id="scrollDownBtn" class="scroll-btn">
+      <i class="bi bi-arrow-down-circle-fill"></i>
+    </button>
+  </div>
 </div>
+
 
 
   <!-- Footer -->
@@ -69,19 +75,37 @@
  <script>
   window.addEventListener('load', () => {
     const popup = document.getElementById('fullscreenPopup');
-
-    // Show immediately
     popup.style.display = 'flex';
 
-    // After 5 seconds, fade out
+    setTimeout(() => {
+      popup.style.opacity = '0';
+      popup.style.transition = 'opacity 1s ease';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 1000); // Wait for fade-out to finish
+    }, 5000); // Show for 5 seconds
+  });
+</script>
+
+<script>
+  window.addEventListener('load', () => {
+    const popup = document.getElementById('fullscreenPopup');
+    popup.style.display = 'block';
+
     setTimeout(() => {
       popup.classList.add('fade-out');
-
-      // After fade completes, remove from layout
       setTimeout(() => {
         popup.style.display = 'none';
       }, 1000); // match transition duration
     }, 5000);
+  });
+
+  // Optional: Scroll button behavior
+  document.getElementById('scrollDownBtn')?.addEventListener('click', () => {
+    document.getElementById('fullscreenPopup').scrollBy({
+      top: 100,
+      behavior: 'smooth'
+    });
   });
 </script>
 
