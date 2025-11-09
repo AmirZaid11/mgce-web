@@ -572,3 +572,24 @@ body {
   border: 1px solid #666;
 }
 
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.modal-content a {
+  color: #d63384;
+  font-weight: bold;
+}
+#fullscreenPopup {
+  opacity: 1;
+  transition: opacity 1s ease;
+  pointer-events: auto;
+}
+
+#fullscreenPopup.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
