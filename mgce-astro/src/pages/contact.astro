@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contact Us | MGCE">
+	<Navbar />
+
+	<script is:inline src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+	<script is:inline>
+	  (function() {
+		emailjs.init("jupTJcQwazKHTt0nW");
+	  })();
+	</script>
+
+	<!-- Hero -->
+	<section class="hero about-hero text-center text-white d-flex align-items-center justify-content-center" style="height: 40vh;">
+		<div class="container">
+		  <h1 class="display-4 fw-bold">Get in Touch</h1>
+		  <p class="lead">We’d love to hear from you — whether it’s a question, a story, or a partnership.</p>
+		</div>
+	  </section>
+	
+	  <!-- Contact Form -->
+	  <section class="py-5 contact-form-section">
+		<div class="container">
+		  <div class="row justify-content-center">
+			<div class="col-lg-8">
+			  <h4 class="text-pink mb-3 text-center">Send Us a Message</h4>
+			  <form id="contactForm">
+				<div class="mb-3">
+				  <input type="text" class="form-control" placeholder="Your Name" id="name" name="name" required>
+				</div>
+				<div class="mb-3">
+				  <input type="email" class="form-control" placeholder="Your Email" id="email" name="email" required>
+				</div>
+				<div class="mb-3">
+				  <select class="form-select" id="subject" name="subject">
+					<option selected disabled>Choose Subject</option>
+					<option value="partnership">Partnership</option>
+					<option value="story">Story Submission</option>
+					<option value="general">General Inquiry</option>
+				  </select>
+				</div>
+				<div class="mb-3">
+				  <textarea class="form-control" rows="5" placeholder="Your Message" id="message" name="message" required></textarea>
+				</div>
+				<button type="submit" class="btn btn-pink w-100">Send Message</button>
+				<div id="formStatus" class="mt-3 text-success" style="display:none;">Message sent successfully!</div>
+			  </form>
+			</div>
+		  </div>
+		</div>
+	  </section>
+	
+	  <!-- Google Map -->
+	  <section class="py-5 map-section text-center">
+		<div class="container">
+		  <h4 class="text-pink mb-3">Find Us at Maseno University</h4>
+		  <div class="d-flex justify-content-center">
+			<iframe
+			  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12765.90225934458!2d34.609975!3d-0.003472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182aa8b0a8c3e7e1%3A0x7f8e9c6f4b1f7e3e!2sMaseno%20University!5e0!3m2!1sen!2ske!4v1700000000000"
+			  width="100%" height="400" style="max-width: 800px; border:0;" allowfullscreen="" loading="lazy">
+			</iframe>
+		  </div>
+		</div>
+	  </section>
+	
+	  <!-- Contact Details -->
+	  <section class="py-5 text-center">
+		<div class="container">
+		  <h4 class="text-pink mb-3">Contact Details</h4>
+		  <p><i class="bi bi-envelope-fill me-2"></i> eddysimba9@gmail.com</p>
+		  <p><i class="bi bi-telephone-fill me-2"></i> +254 715 264 486</p>
+		  <p><i class="bi bi-whatsapp me-2"></i> <a href="https://wa.me/254715264486" target="_blank">WhatsApp Us</a></p>
+		  <div class="mt-4">
+			<h5 class="text-pink">Follow Us</h5>
+			<a href="#" class="me-3"><i class="bi bi-instagram fs-4"></i></a>
+			<a href="#" class="me-3"><i class="bi bi-facebook fs-4"></i></a>
+			<a href="#" class="me-3"><i class="bi bi-youtube fs-4"></i></a>
+			<a href="#"><i class="bi bi-linkedin fs-4"></i></a>
+		  </div>
+		</div>
+	  </section>
+	
+	  <!-- CTA -->
+	  <section class="py-5 cta-section text-center">
+		<div class="container">
+		  <h2 class="text-pink mb-3">Want to partner with us or share your story?</h2>
+		  <a href="/stories" class="btn btn-pink">Start Here</a>
+		</div>
+	  </section>
+
+	<Footer />
+
+</Layout>

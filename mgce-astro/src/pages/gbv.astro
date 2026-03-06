@@ -1,0 +1,237 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Let Us Stop GBV – Women For Women">
+	<Navbar />
+
+	<style is:inline>
+		.flicker {
+		  animation: flicker 1.2s infinite;
+		}
+		
+		@keyframes flicker {
+		  0%, 100% { opacity: 1; }
+		  50% { opacity: 0.4; }
+		}
+		
+		body {
+		  background-color: #4A148C;
+		  color: #fff;
+		  font-family: 'Segoe UI', sans-serif;
+		}
+		.hero {
+		  background: linear-gradient(to right, #6A1B9A, #4A148C);
+		  color: white;
+		  padding: 80px 20px;
+		  text-align: center;
+		}
+		.hero h1 {
+		  font-size: 3rem;
+		  font-weight: bold;
+		}
+		.section-title {
+		  color: #F8BBD0;
+		  font-weight: bold;
+		  margin-top: 40px;
+		  text-align: center;
+		}
+		.card {
+		  background-color: #6A1B9A;
+		  color: white;
+		  border: none;
+		}
+		.card:hover {
+		  transform: scale(1.02);
+		  transition: 0.3s ease;
+		}
+		.action-buttons .btn {
+		  min-width: 150px;
+		}
+		.btn-danger {
+		  background-color: #F06292;
+		  border: none;
+		}
+		.btn-outline-danger {
+		  border-color: #F06292;
+		  color: #F06292;
+		}
+		.btn-outline-danger:hover {
+		  background-color: #F06292;
+		  color: white;
+		}
+		.btn-warning {
+		  background-color: #FFB74D;
+		  border: none;
+		  color: black;
+		}
+	</style>
+
+	<!-- Hero Section -->
+	<header class="hero d-flex align-items-center justify-content-center text-center text-white position-relative" style="min-height: 60vh; overflow: hidden;">
+		<video autoplay muted loop playsinline class="hero-video" style="position: absolute; top: 0; left: 0; min-width: 100%; min-height: 100%; z-index: 0; object-fit: cover; opacity: 0.4;">
+		  <source src="/assets/video/g5.mp4" type="video/mp4">
+		  Your browser does not support the video tag.
+	   </video> 
+	   <div class="hero-content" style="z-index: 2; position: relative;">
+		  <h1 class="display-3 fw-bold">Let Us Stop GBV</h1>
+		  <p class="lead">Women For Women – United Against Violence</p>
+		  <a href="https://www.change.org/p/stop-gbv-in-south-africa" target="_blank" class="btn btn-light btn-lg mt-3">Sign the Petition</a>
+		</div>
+	  </header>
+	
+	  <!-- Campaign Content -->
+	  <section class="py-5" style="background-color: #4A148C;">
+		<div class="container">
+		  <h2 class="section-title">Understanding GBV</h2>
+		  <p class="text-center px-4">
+			Gender-based violence (GBV) is a violation of human rights and a global public health crisis.
+			It includes physical, emotional, sexual, and economic abuse. In South Africa and across the continent,
+			women and girls face disproportionate risks. This platform stands for awareness, solidarity, and action.
+		  </p>
+	
+		  <h2 class="section-title">Women For Women</h2>
+		  <div class="row justify-content-center">
+			<div class="col-md-4 mb-4">
+			  <div class="card shadow-sm">
+				<img src="/assets/images/stories/img1.png" class="card-img-top" alt="Woman 1">
+				<div class="card-body">
+				  <h5 class="card-title text-white">Thandiwe's Story</h5>
+				  <p class="card-text text-white">“I found strength in sisterhood. We rise together.”</p>
+				</div>
+			  </div>
+			</div>
+			<div class="col-md-4 mb-4">
+			  <div class="card shadow-sm">
+				<img src="/assets/images/stories/ivy.png" class="card-img-top" alt="Woman 2">
+				<div class="card-body">
+				  <h5 class="card-title text-white">Amina's Voice</h5>
+				  <p class="card-text text-white">“Speaking out saved my life. Silence is not safety.”</p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+	
+		  <h2 class="section-title">Take Action</h2>
+	
+		  <!-- Static Countdown Banner -->
+	<h2 class="section-title">Upcoming National Action Days</h2>
+	<div class="container mb-5">
+	  <div class="p-4 rounded-4 shadow-lg text-center" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2);">
+		<h5 class="fw-bold mb-3" style="color: #F8BBD0;">📅 Mark Your Calendar</h5>
+		<p class="mb-2">🟣 <strong>16 Days of Activism:</strong> November 25 – December 10</p>
+		<p class="mb-3">🟣 <strong>G20 Shutdown:</strong> November 21</p>
+		<div class="d-flex justify-content-center gap-3 flex-wrap">
+		  <a href="https://www.change.org/p/stop-gbv-in-south-africa" target="_blank" class="btn btn-danger">Join the March</a>
+		  <a href="/assets/GBV _booklet.pdf" class="btn btn-outline-light">Download Toolkit</a>
+		</div>
+	  </div>
+	</div>
+	
+	<!-- Myth vs Fact Flip Cards -->
+	<h2 class="section-title">Myth vs Fact</h2>
+	<div class="container mb-5">
+	  <div class="row justify-content-center">
+		<!-- Card 1 -->
+		<div class="col-md-4 mb-4">
+		  <div class="card text-center text-dark" style="cursor: pointer;" onclick="toggleCard(this)">
+			<div class="card-body bg-light rounded-3">
+			  <h5 class="card-title fw-bold">Myth</h5>
+			  <p class="card-text">GBV only affects women.</p>
+			</div>
+			<div class="card-body bg-warning rounded-3 d-none">
+			  <h5 class="card-title fw-bold">Fact</h5>
+			  <p class="card-text">GBV affects all genders, but women are disproportionately impacted.</p>
+			</div>
+		  </div>
+		</div>
+	
+		<!-- Card 2 -->
+		<div class="col-md-4 mb-4">
+		  <div class="card text-center text-dark" style="cursor: pointer;" onclick="toggleCard(this)">
+			<div class="card-body bg-light rounded-3">
+			  <h5 class="card-title fw-bold">Myth</h5>
+			  <p class="card-text">GBV is a private issue, not a public concern.</p>
+			</div>
+			<div class="card-body bg-warning rounded-3 d-none">
+			  <h5 class="card-title fw-bold">Fact</h5>
+			  <p class="card-text">GBV is a human rights violation and a public health crisis.</p>
+			</div>
+		  </div>
+		</div>
+	
+		<!-- Card 3 -->
+		<div class="col-md-4 mb-4">
+		  <div class="card text-center text-dark" style="cursor: pointer;" onclick="toggleCard(this)">
+			<div class="card-body bg-light rounded-3">
+			  <h5 class="card-title fw-bold">Myth</h5>
+			  <p class="card-text">Only physical violence counts as GBV.</p>
+			</div>
+			<div class="card-body bg-warning rounded-3 d-none">
+			  <h5 class="card-title fw-bold">Fact</h5>
+			  <p class="card-text">GBV includes emotional, sexual, and economic abuse too.</p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+		  <h2 class="section-title">MGCE Solidarity Message</h2>
+	
+		  <!-- Language Toggle Buttons -->
+		  <div class="text-center mb-4">
+			<button class="btn btn-outline-light me-2" onclick="showMessage('english')">English</button>
+			<button class="btn btn-outline-light me-2" onclick="showMessage('kiswahili')">Kiswahili</button>
+			<button class="btn btn-outline-light" onclick="showMessage('zulu')">IsiZulu</button>
+		  </div>
+	
+		  <!-- Glassmorphic Message Container -->
+		  <div class="container my-4">
+			<div class="p-4 rounded-4 shadow-lg" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2);">
+			  <div id="message-english">
+				<h5 class="text-center fw-bold mb-3" style="color: #F8BBD0;">✊ United Voices Against GBV</h5>
+				<p class="fst-italic">
+				  “From Maseno to Mzansi, our voices rise as one. We stand with every girl, every woman, every survivor. Gender-based violence is not a South African issue — it’s a global injustice. At MGCE, we believe in power through unity, healing through sisterhood, and justice through action. Together, we say: Enough is enough.”
+				</p>
+			  </div>
+			  <div id="message-kiswahili" style="display: none;">
+				<h5 class="text-center fw-bold mb-3" style="color: #F8BBD0;">✊ Sauti Zetu Dhidi ya Ukatili</h5>
+				<p class="fst-italic">
+				  “Kutoka Maseno hadi Afrika Kusini, sauti zetu zinaungana. Tunasimama na kila msichana, kila mwanamke, kila ocali. Ukatili wa kijinsia si tatizo la taifa moja — ni dhuluma ya kimataifa. MGCE tunaamini katika nguvu ya umoja, uponyaji kupitia undugu wa kike, na haki kupitia vitendo. Tunasema: Imewatosha.”
+				</p>
+			  </div>
+			  <div id="message-zulu" style="display: none;">
+				<h5 class="text-center fw-bold mb-3" style="color: #F8BBD0;">✊ Amazwi Obumbano</h5>
+				<p class="fst-italic">
+				  “Sivela eMaseno siya eMzansi, amazwi ethu ayahlangana. Simi nabo bonke abesifazane, bonke abasindile. Udlame olubhekiswe ebantwini besifazane akulona udaba lwaseNingizimu Afrika kuphela — luyinkinga yomhlaba wonke. Kwa-MGCE, sikholwa emandleni obumbano, ekuphulukeni ngobudlelwano, nasekutholeni ubulungiswa. Sithi: Sekwanele.”
+				</p>
+			  </div>
+			</div>
+		  </div>
+	
+		  <!-- Action Buttons -->
+		  <div class="d-flex justify-content-center gap-3 mb-4 action-buttons flex-wrap">
+			<a href="https://www.change.org/p/stop-gbv-in-south-africa" target="_blank" class="btn btn-danger">Sign Petition</a>
+			<a href="/contact" class="btn btn-pink">Partner With Us</a>
+		  </div>
+		</div>
+	  </section>
+
+	<Footer />
+
+	<script is:inline>
+		function showMessage(lang) {
+			document.getElementById('message-english').style.display = lang === 'english' ? 'block' : 'none';
+			document.getElementById('message-kiswahili').style.display = lang === 'kiswahili' ? 'block' : 'none';
+			document.getElementById('message-zulu').style.display = lang === 'zulu' ? 'block' : 'none';
+		}
+		
+		function toggleCard(card) {
+			const bodies = card.querySelectorAll('.card-body');
+			bodies.forEach(body => body.classList.toggle('d-none'));
+		}
+	</script>
+
+</Layout>

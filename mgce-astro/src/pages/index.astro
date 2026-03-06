@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="MGCE - Empowering Girls">
+	<Navbar />
+
+	<div class="video-bg">
+		<video autoplay muted loop playsinline>
+			<source src="/assets/video/g2.mp4" type="video/mp4">
+		</video>
+		<div class="overlay"></div>
+	</div>
+
+	<!-- Hero Section -->
+	<header class="hero d-flex align-items-center justify-content-center text-center text-white">
+		<div class="hero-content">
+			<h1 class="display-2 fw-bold mb-4" id="typedText"></h1>
+			<p class="lead fs-3 fw-light mb-5">Empowering the Next Generation of Female Leaders</p>
+			<a href="/programs" class="btn btn-pink btn-lg shadow">Explore Our Programs</a>
+		</div>
+	</header>
+
+	<!-- Impact Counters -->
+	<section class="py-5 text-center bg-white impact-section shadow-sm">
+		<div class="container py-4">
+			<h2 class="text-pink mb-5 display-4">Measuring Our Global Impact</h2>
+			<div class="row g-5">
+				<div class="col-md-4">
+					<div class="p-4 rounded-4 bg-light shadow-sm h-100">
+						<h3 class="counter mb-2" data-target="980">0</h3>
+						<p class="text-uppercase small fw-bold tracking-wider">Girls Mentored</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="p-4 rounded-4 bg-light shadow-sm h-100">
+						<h3 class="counter mb-2" data-target="35">0</h3>
+						<p class="text-uppercase small fw-bold tracking-wider">Programs Run</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="p-4 rounded-4 bg-light shadow-sm h-100">
+						<h3 class="counter mb-2" data-target="15">0</h3>
+						<p class="text-uppercase small fw-bold tracking-wider">Communities Reached</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<Footer />
+
+</Layout>
