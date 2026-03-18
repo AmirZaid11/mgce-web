@@ -27,22 +27,22 @@ const founders = [
     name: "Dr. Grace Achieng",
     role: "Co-Founder & Executive Director",
     bio: "With over 15 years in education policy, Grace founded MGCE to bridge the gap in girls&apos; education in rural Kenya.",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/images/pic1.jpeg"
   },
   {
     name: "Joyce Wanjiku",
     role: "Co-Founder & Head of Programs",
     bio: "A passionate advocate for youth empowerment and mental health, Joyce designs our core mentorship frameworks.",
-    image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/images/pic2.jpeg"
   }
 ];
 
 const leadership = [
-  { name: "Sarah Mumbi", title: "Director of Education", image: "https://images.unsplash.com/photo-1542596594-649edbc13630?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Lilian Omondi", title: "Community Outreach Lead", image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Mercy Kiprotich", title: "Mentorship Coordinator", image: "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Faith Ndung&apos;u", title: "Finance Officer", image: "https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Diana Mutua", title: "Digital Skills Trainer", image: "https://images.unsplash.com/photo-1505389657731-0dfeb99b9195?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+  { name: "Sarah Mumbi", title: "Director of Education", image: "/images/pic3.jpeg" },
+  { name: "Lilian Omondi", title: "Community Outreach Lead", image: "/images/pic4.jpeg" },
+  { name: "Mercy Kiprotich", title: "Mentorship Coordinator", image: "/images/pic5.jpeg" },
+  { name: "Faith Ndung&apos;u", title: "Finance Officer", image: "/images/pic6.jpeg" },
+  { name: "Diana Mutua", title: "Digital Skills Trainer", image: "/images/pic7.jpeg" }
 ];
 
 export default function AboutPage() {

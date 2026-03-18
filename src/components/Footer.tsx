@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="space-y-4 md:col-span-1">
           <Link href="/" className="flex items-center space-x-2">
             <div className="relative w-12 h-12 bg-white rounded-full overflow-hidden p-1">
-              <Image src="/mgce.jpeg" alt="MGCE Logo" fill className="object-cover rounded-full" />
+              <Image src="/images/mgce.jpeg" alt="MGCE Logo" fill className="object-cover rounded-full" />
             </div>
             <span className="font-heading font-bold text-xl text-gold">MGCE</span>
           </Link>

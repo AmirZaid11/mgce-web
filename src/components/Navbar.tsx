@@ -43,7 +43,7 @@ export default function Navbar() {
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2 transition-transform hover:scale-105">
           <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand">
-            <Image src="/mgce.jpeg" alt="MGCE Logo" fill className="object-cover" />
+            <Image src="/images/mgce.jpeg" alt="MGCE Logo" fill className="object-cover" />
           </div>
           <span className="hidden md:inline-block font-heading font-bold text-xl text-brand">
             MGCE

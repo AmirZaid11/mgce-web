@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544928147-79a2dbc1f389?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')" }}
+          style={{ backgroundImage: "url('/images/pic8.jpeg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand/90 via-navy/80 to-navy-dark/90 mix-blend-multiply" />
         <div className="absolute inset-0 bg-brand/20 backdrop-blur-[2px]" />
