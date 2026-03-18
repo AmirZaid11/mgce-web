@@ -1,46 +1,82 @@
-# Astro Starter Kit: Basics
+# MASENO GIRL CHILD EMPOWERMENT (MGCE) Website
 
-```sh
-npm create astro@latest -- --template basics
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAmirZaid11%2Fmgce-web&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY)
+
+
+This is a complete, modern, production-ready multi-page website built for MGCE. 
+It uses Next.js 15, React 19, Tailwind CSS, Shadcn UI, Framer Motion, and Supabase.
+
+## Tech Stack
+- **Framework**: Next.js 15 (App Router) + TypeScript
+- **Styling**: Tailwind CSS + Shadcn/ui
+- **Icons**: Lucide React
+- **Animations**: Framer Motion
+- **Database/Auth**: Supabase (Official Client)
+- **Forms**: React Hook Form + Zod
+
+## Getting Started
+
+1. **Install Dependencies**
+   ```bash
+   npm install --legacy-peer-deps
+   ```
+   *(Note: `--legacy-peer-deps` is recommended currently as some libraries are still aligning peer dependencies with React 19 which Next.js 15 uses by default).*
+
+2. **Environment Variables**
+   Copy the example environment file and add your actual Supabase keys:
+   ```bash
+   cp .env.example .env.local
+   ```
+   Open `.env.local` and fill in:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+3. **Run the Development Server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Required Supabase Setup
+To make the interactive features work (Community Auth, Contact Form, Admin Dashboard), you must configure your Supabase project:
+1. **Authentication**: Enable Email Signup in Supabase Authentication settings.
+2. **Database Schema**:
+   Run the following SQL in your Supabase SQL Editor:
+   ```sql
+   create table public.messages (
+     id uuid default gen_random_uuid() primary key,
+     name text not null,
+     email text not null,
+     message text not null,
+     created_at timestamp with time zone default timezone('utc'::text, now()) not null
+   );
+   
+   -- Optional RLS
+   alter table public.messages enable row level security;
+   create policy "Enable insert for all users" on public.messages for insert with check (true);
+   ```
+3. Update `.env.local` with your database credentials.
+
+## Deployment
+
+### Deploy to Vercel (Recommended)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+1. Push your code to a GitHub repository.
+2. Import the project into Vercel.
+3. Add your Environment Variables (`NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`) in the Vercel project settings.
+
+### Production Build
+To create an optimized production build:
+```bash
+npm run build
+```
+Then start the production server:
+```bash
+npm run start
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Design Aesthetic
+The application strictly follows the MGCE brand guidelines extracted from the official logo: Primary Purple (`#5B21B6`, `#7C3AED`), Gold Accent (`#D4AF37`), Navy (`#1E2937`), Cream (`#F8F1E9`), and Laurel (`#14532D`). Next/Image is used broadly for all optimized placeholder imagery.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Thank you for empowering the girl child!
