@@ -40,14 +40,14 @@ const founders = [
 const leadership = [
   { name: "Lilian Omondi", title: "Chair", image: "/images/pic1.jpeg" },
   { name: "Sarah Mumbi", title: "Vice Chair", image: "/images/pic2.jpeg" },
-  { name: "Mercy Kiprotich", title: "Programmes Co-ordinator", image: "/images/pic3.jpeg" },
-  { name: "Faith Ndung&apos;u", title: "Secretary", image: "/images/pic4.jpeg" },
-  { name: "Diana Mutua", title: "Vice Secretary", image: "/images/pic5.jpeg" },
-  { name: "Brenda Kwamboka", title: "Communication Lead", image: "/images/pic6.jpeg" },
-  { name: "Alice Nyong&apos;o", title: "Mental Health Lead", image: "/images/pic7.jpeg" },
-  { name: "Zainab Ali", title: "Creative and Media Lead", image: "/images/pic8.jpeg" },
-  { name: "Catherine Anyango", title: "Treasurer", image: "https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Rose Njeri", title: "Welfare and Support Coordinator", image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+  { name: "Pauline Melvine", title: "Programmes Co-ordinator", image: "/images/pic1.jpeg" },
+  { name: "Marion Loki", title: "Secretary", image: "/images/pic2.jpeg" },
+  { name: "Desma Annah", title: "Vice Secretary", image: "/images/pic3.jpeg" },
+  { name: "Sheila Akinyi", title: "Communication Lead", image: "/images/pic4.jpeg" },
+  { name: "Nicole Harriet", title: "Mental Health Lead", image: "/images/pic5.jpeg" },
+  { name: "Mudeizi Sharon", title: "Creative and Media Lead", image: "/images/pic6.jpeg" },
+  { name: "Elizabeth Omolo", title: "Treasurer", image: "/images/pic7.jpeg" },
+  { name: "Laura Onyango", title: "Welfare and Support Coordinator", image: "/images/pic8.jpeg" }
 ];
 
 export default function AboutPage() {
