@@ -27,22 +27,27 @@ const founders = [
     name: "Dr. Grace Achieng",
     role: "Co-Founder & Executive Director",
     bio: "With over 15 years in education policy, Grace founded MGCE to bridge the gap in girls&apos; education in rural Kenya.",
-    image: "/images/pic1.jpeg"
+    image: "https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Joyce Wanjiku",
     role: "Co-Founder & Head of Programs",
     bio: "A passionate advocate for youth empowerment and mental health, Joyce designs our core mentorship frameworks.",
-    image: "/images/pic2.jpeg"
+    image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }
 ];
 
 const leadership = [
-  { name: "Sarah Mumbi", title: "Director of Education", image: "/images/pic3.jpeg" },
-  { name: "Lilian Omondi", title: "Community Outreach Lead", image: "/images/pic4.jpeg" },
-  { name: "Mercy Kiprotich", title: "Mentorship Coordinator", image: "/images/pic5.jpeg" },
-  { name: "Faith Ndung&apos;u", title: "Finance Officer", image: "/images/pic6.jpeg" },
-  { name: "Diana Mutua", title: "Digital Skills Trainer", image: "/images/pic7.jpeg" }
+  { name: "Lilian Omondi", title: "Chair", image: "/images/pic1.jpeg" },
+  { name: "Sarah Mumbi", title: "Vice Chair", image: "/images/pic2.jpeg" },
+  { name: "Mercy Kiprotich", title: "Programmes Co-ordinator", image: "/images/pic3.jpeg" },
+  { name: "Faith Ndung&apos;u", title: "Secretary", image: "/images/pic4.jpeg" },
+  { name: "Diana Mutua", title: "Vice Secretary", image: "/images/pic5.jpeg" },
+  { name: "Brenda Kwamboka", title: "Communication Lead", image: "/images/pic6.jpeg" },
+  { name: "Alice Nyong&apos;o", title: "Mental Health Lead", image: "/images/pic7.jpeg" },
+  { name: "Zainab Ali", title: "Creative and Media Lead", image: "/images/pic8.jpeg" },
+  { name: "Catherine Anyango", title: "Treasurer", image: "https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Rose Njeri", title: "Welfare and Support Coordinator", image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
 ];
 
 export default function AboutPage() {
@@ -120,7 +125,7 @@ export default function AboutPage() {
             <p className="text-navy/60 max-w-2xl mx-auto">The dedicated professionals driving our programs on the ground.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {leadership.map((leader, i) => (
               <motion.div
                 key={leader.name}
