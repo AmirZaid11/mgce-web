@@ -35,7 +35,7 @@ export default function DonatePage() {
     <div className="flex flex-col w-full min-h-screen bg-cream">
       <section className="bg-brand text-cream py-20 px-4 text-center">
         <div className="container max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-gold">Invest in a Girl's Future</h1>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-gold">Invest in a Girl&apos;s Future</h1>
           <p className="text-lg md:text-xl text-cream/90 max-w-2xl mx-auto">
             Your generous donation directly funds school fees, mentorship programs, and essential health supplies for girls in rural Kenya.
           </p>
@@ -174,7 +174,7 @@ export default function DonatePage() {
                     <div className="w-2 h-16 bg-laurel rounded-full shrink-0 mt-1" />
                     <div>
                       <h4 className="font-bold text-lg">KES 25,000</h4>
-                      <p className="text-cream/80 text-sm">Fully sponsors a girl's high school tuition, uniform, and books for an entire academic year.</p>
+                      <p className="text-cream/80 text-sm">Fully sponsors a girl&apos;s high school tuition, uniform, and books for an entire academic year.</p>
                     </div>
                   </div>
                 </div>

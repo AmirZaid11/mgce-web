@@ -11,8 +11,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function NewsArticle({ params }: { params: { slug: string } }) {
-  const article = NEWS_ARTICLES.find((a) => a.slug === params.slug);
+export default async function NewsArticle({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = NEWS_ARTICLES.find((a) => a.slug === slug);
 
   if (!article) {
     notFound();

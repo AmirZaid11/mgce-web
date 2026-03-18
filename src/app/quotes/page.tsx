@@ -26,7 +26,7 @@ export default function QuotesPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-3xl md:text-5xl font-heading font-medium text-white leading-tight mb-8 text-balance"
           >
-            "{dailyQuote.text}"
+            &quot;{dailyQuote.text}&quot;
           </motion.blockquote>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -58,7 +58,7 @@ export default function QuotesPage() {
               >
                 <QuoteIcon className="absolute top-6 right-6 w-8 h-8 text-brand/5" />
                 <blockquote className="text-lg md:text-xl text-navy/80 font-heading font-medium leading-relaxed mb-6 pt-4 flex-1">
-                  "{quote.text}"
+                  &quot;{quote.text}&quot;
                 </blockquote>
                 <div className="flex items-center gap-4 mt-auto border-t border-border pt-6">
                   <div className="w-10 h-10 rounded-full bg-gold/20 text-gold-dark flex items-center justify-center font-bold">

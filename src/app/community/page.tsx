@@ -79,7 +79,7 @@ export default function CommunityAuthPage() {
           
           <div className="relative z-10 p-6 bg-navy/20 backdrop-blur-sm rounded-2xl border border-cream/10 mt-auto">
             <Sparkles className="w-6 h-6 text-gold mb-3" />
-            <p className="text-sm font-medium italic text-cream/90">"Alone we can do so little; together we can do so much."</p>
+            <p className="text-sm font-medium italic text-cream/90">&quot;Alone we can do so little; together we can do so much.&quot;</p>
           </div>
         </div>
 

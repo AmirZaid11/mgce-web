@@ -46,7 +46,7 @@ export default function ContactPage() {
         <div className="container max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Get in Touch</h1>
           <p className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto">
-            We'd love to hear from you. Whether you have a question about our programs, want to partner, or just want to say hello.
+            We&apos;d love to hear from you. Whether you have a question about our programs, want to partner, or just want to say hello.
           </p>
         </div>
       </section>

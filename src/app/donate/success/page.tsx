@@ -15,7 +15,7 @@ export default function DonateSuccessPage() {
         
         <h1 className="text-4xl font-heading font-bold text-navy mb-4">Thank You!</h1>
         <p className="text-lg text-navy/70 mb-8 leading-relaxed text-balance">
-          Your donation has been processed successfully. A receipt will be sent to your email shortly. You are now a vital part of a girl's journey to success.
+          Your donation has been processed successfully. A receipt will be sent to your email shortly. You are now a vital part of a girl&apos;s journey to success.
         </p>
 
         <div className="p-6 bg-gold/10 rounded-2xl mb-8 flex items-center justify-center gap-3 text-gold-dark font-bold">

@@ -37,7 +37,7 @@ export default function DailyQuote() {
             Daily Motivation
           </h2>
           <blockquote className="text-2xl md:text-3xl font-heading font-medium text-navy leading-tight mb-8">
-            "{quote.text}"
+            &quot;{quote.text}&quot;
           </blockquote>
           <p className="text-lg font-bold text-laurel font-heading">
             — {quote.author}
