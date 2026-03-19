@@ -1,18 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { PlayCircle, ArrowRight } from "lucide-react";
+import { PlayCircle, ArrowRight, X } from "lucide-react";
 
 export default function Hero() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/pic8.jpeg')" }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
+          style={{ backgroundImage: "url('/images/gallery/gal2.jpeg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand/90 via-navy/80 to-navy-dark/90 mix-blend-multiply" />
         <div className="absolute inset-0 bg-brand/20 backdrop-blur-[2px]" />
@@ -45,12 +48,49 @@ export default function Hero() {
             <Button size="lg" variant="default" asChild className="rounded-full w-full sm:w-auto bg-brand-light hover:bg-white hover:text-brand transition-colors">
               <Link href="/donate">Donate Now</Link>
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full w-full sm:w-auto text-cream border-cream/50 hover:bg-cream/10 bg-transparent backdrop-blur-sm">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              onClick={() => setIsVideoOpen(true)}
+              className="rounded-full w-full sm:w-auto text-cream border-cream/50 hover:bg-cream/10 bg-transparent backdrop-blur-sm"
+            >
               <PlayCircle className="mr-2 w-5 h-5" /> Watch Impact Video
             </Button>
           </div>
         </motion.div>
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {isVideoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-navy/95 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+            >
+              <button 
+                onClick={() => setIsVideoOpen(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-navy/50 text-white hover:bg-brand transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <video 
+                src="/images/gallery/vid1.mp4" 
+                controls 
+                autoPlay 
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Decorative sun rays inspired by logo */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream to-transparent z-10" />

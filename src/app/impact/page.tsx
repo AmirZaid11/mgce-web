@@ -8,15 +8,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const photos = [
-  "https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1542596594-649edbc13630?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1505389657731-0dfeb99b9195?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  "/images/gallery/gal1.jpeg",
+  "/images/gallery/gal2.jpeg",
+  "/images/gallery/gal3.jpeg",
+  "/images/gallery/gal4.jpeg",
+  "/images/gallery/gal5.jpeg"
 ];
 
 export default function ImpactPage() {
