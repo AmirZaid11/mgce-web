@@ -38,10 +38,10 @@ const founders = [
 ];
 
 const leadership = [
-  { name: "Lilian Omondi", title: "Chair", image: "/images/pic1.jpeg" },
-  { name: "Sarah Mumbi", title: "Vice Chair", image: "/images/pic2.jpeg" },
+  { name: "Shalon Kimani", title: "Chair", image: "/images/pic1.jpeg" },
+  { name: "Shalon Kimani", title: "Vice Chair", image: "/images/pic9.jpeg" },
   { name: "Pauline Melvine", title: "Programmes Co-ordinator", image: "/images/pic1.jpeg" },
-  { name: "Marion Loki", title: "Secretary", image: "/images/pic2.jpeg" },
+  { name: "Marian Loki", title: "Secretary", image: "/images/pic2.jpeg" },
   { name: "Desma Annah", title: "Vice Secretary", image: "/images/pic3.jpeg" },
   { name: "Sheila Akinyi", title: "Communication Lead", image: "/images/pic4.jpeg" },
   { name: "Nicole Harriet", title: "Mental Health Lead", image: "/images/pic5.jpeg" },
