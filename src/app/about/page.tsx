@@ -24,15 +24,15 @@ const values = [
 
 const founders = [
   {
-    name: "Dr. Grace Achieng",
+    name: "Pollette",
     role: "Co-Founder & Executive Director",
-    bio: "With over 15 years in education policy, Grace founded MGCE to bridge the gap in girls&apos; education in rural Kenya.",
+    bio: "With over 5 years in education policy, Pollette founded MGCE to bridge the gap in girls&apos; education in rural Kenya.",
     image: "https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
-    name: "Joyce Wanjiku",
-    role: "Co-Founder & Head of Programs",
-    bio: "A passionate advocate for youth empowerment and mental health, Joyce designs our core mentorship frameworks.",
+    name: "Liz Achieng",
+    role: "Co-Founder",
+    bio: "A passionate advocate for youth empowerment and mental health, Liz designs our core mentorship frameworks.",
     image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }
 ];
