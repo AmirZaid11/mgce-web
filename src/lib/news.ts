@@ -1,5 +1,27 @@
 export const NEWS_ARTICLES = [
   {
+    title: "Cradle in Classroom Event Appreciation",
+    slug: "cradle-in-classroom-event-appreciation",
+    excerpt: "MGCE executives and student leaders express gratitude to all participants of the successful Cradle in Classroom event.",
+    content: "Maseno Girlchild Empowerment executives together with Young Mums in school and Somu vice chair, would like to thank everyone who took time out of their busy schedule to attend the Cradle in classroom event❤️.\n\n#masenouniversitytiktokers #kisumutiktoker #goviral #masenotiktokers",
+    date: "2026-03-14",
+    readTime: "2 min read",
+    category: "Events",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    author: "Media Team"
+  },
+  {
+    title: "Menstrual Health Hygiene Workshop at St Williams Primary",
+    slug: "menstrual-health-hygiene-st-williams",
+    excerpt: "Partnering with Odi agency, MGCE conducted a successful menstrual health hygiene workshop for children at St Williams Primary School.",
+    content: "Maseno Girlchild Empowerment partnered with Odi agency and held an event at St Williams primary school in Kisian Kisumu county. We taught the kids about menstrual health hygiene. The event was successful ❤️",
+    date: "2026-02-07",
+    readTime: "2 min read",
+    category: "Health",
+    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    author: "Media Team"
+  },
+  {
     title: "100 Girls Graduate from our Digital Skills Bootcamp",
     slug: "100-girls-graduate-digital-skills",
     excerpt: "A landmark achievement as 100 young women from rural Kisumu showcase their final web development projects to local tech leaders.",
