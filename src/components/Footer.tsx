@@ -26,7 +26,7 @@ export default function Footer() {
             Empowering the Girl Child, One Future at a Time. Dedicated to transforming lives across Kenya through education, mentorship, and support.
           </p>
           <div className="flex space-x-4 pt-2">
-            <Link href="https://whatsapp.com/channel/0029ValCH7y8vd1K0vQ7901A" className="text-cream/80 hover:text-gold transition-colors" title="WhatsApp Channel" target="_blank">
+            <Link href="https://whatsapp.com/channel/0029Vac4qi7I7BeEmwRCGT2n" className="text-cream/80 hover:text-gold transition-colors" title="WhatsApp Channel" target="_blank">
               <MessageCircle className="h-5 w-5" />
             </Link>
             <Link href="https://www.tiktok.com/@mgce_kenya" className="text-cream/80 hover:text-gold transition-colors" title="TikTok" target="_blank">

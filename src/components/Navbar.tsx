@@ -21,7 +21,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const WHATSAPP_LINK = "https://whatsapp.com/channel/0029ValCH7y8vd1K0vQ7901A";
+  const WHATSAPP_LINK = "https://whatsapp.com/channel/0029Vac4qi7I7BeEmwRCGT2n";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/60">

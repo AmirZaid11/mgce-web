@@ -27,7 +27,7 @@ const founders = [
     name: "Pollette",
     role: "Co-Founder & Executive Director",
     bio: "With over 5 years in education policy, Pollette founded MGCE to bridge the gap in girls&apos; education in rural Kenya.",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/ceo1.jpeg"
   },
   {
     name: "Liz Achieng",
@@ -141,7 +141,7 @@ export default function AboutPage() {
                 <h4 className="font-bold text-navy mb-1">{leader.name}</h4>
                 <p className="text-xs font-medium text-brand text-center mb-3">{leader.title}</p>
                 <div className="flex gap-3">
-                  <a href="https://whatsapp.com/channel/0029ValCH7y8vd1K0vQ7901A" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
+                  <a href="https://whatsapp.com/channel/0029Vac4qi7I7BeEmwRCGT2n" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
                     <MessageCircle className="w-5 h-5" />
                   </a>
                   <a href="https://www.instagram.com/mgce_kenya" target="_blank" className="text-navy/40 hover:text-brand transition-colors">

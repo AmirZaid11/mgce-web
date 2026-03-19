@@ -92,7 +92,7 @@ export default function SistersVoicePage() {
                 <a href="#share-form">Share Now</a>
               </Button>
               <Button asChild variant="outline" className="rounded-full h-12 px-8 border-cream/30 text-cream hover:bg-cream hover:text-brand">
-                <a href="https://whatsapp.com/channel/0029ValCH7y8vd1K0vQ7901A" target="_blank">Join WhatsApp Discussion</a>
+                <a href="https://whatsapp.com/channel/0029Vac4qi7I7BeEmwRCGT2n" target="_blank">Join WhatsApp Discussion</a>
               </Button>
             </div>
           </motion.div>
