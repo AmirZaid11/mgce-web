@@ -7,8 +7,6 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { supabase } from "@/lib/supabase";
-
 const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -21,22 +19,9 @@ const links = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [session, setSession] = useState<any>(null);
   const pathname = usePathname();
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
+  const WHATSAPP_LINK = "https://whatsapp.com/channel/0029ValCH7y8vd1K0vQ7901A";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/60">
@@ -67,18 +52,12 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button asChild variant="gold" className="rounded-full">
+          <Button asChild variant="gold" className="rounded-full shadow-sm hover:shadow-md transition-all">
             <Link href="/donate">Donate Now</Link>
           </Button>
-          {session ? (
-            <Button asChild variant="outline" className="rounded-full">
-              <Link href="/community/dashboard">Dashboard</Link>
-            </Button>
-          ) : (
-            <Button asChild variant="default" className="rounded-full">
-              <Link href="/community">Community</Link>
-            </Button>
-          )}
+          <Button asChild variant="default" className="rounded-full shadow-sm hover:shadow-md transition-all">
+            <Link href={WHATSAPP_LINK} target="_blank">Join Community</Link>
+          </Button>
         </div>
 
         {/* Mobile menu toggle */}
@@ -111,15 +90,9 @@ export default function Navbar() {
             <Button asChild variant="gold" className="w-full justify-start" onClick={() => setIsOpen(false)}>
               <Link href="/donate">Donate Now</Link>
             </Button>
-            {session ? (
-              <Button asChild variant="outline" className="w-full justify-start" onClick={() => setIsOpen(false)}>
-                <Link href="/community/dashboard">Dashboard</Link>
-              </Button>
-            ) : (
-              <Button asChild variant="default" className="w-full justify-start" onClick={() => setIsOpen(false)}>
-                <Link href="/community">Join Community</Link>
-              </Button>
-            )}
+            <Button asChild variant="default" className="w-full justify-start" onClick={() => setIsOpen(false)}>
+              <Link href={WHATSAPP_LINK} target="_blank">Join Community</Link>
+            </Button>
           </nav>
         </div>
       )}

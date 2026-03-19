@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Target, Eye, Heart, Linkedin } from "lucide-react";
+import { Target, Eye, Heart, MessageCircle, Instagram } from "lucide-react";
 
 const values = [
   {
@@ -140,9 +140,14 @@ export default function AboutPage() {
                 </div>
                 <h4 className="font-bold text-navy mb-1">{leader.name}</h4>
                 <p className="text-xs font-medium text-brand text-center mb-3">{leader.title}</p>
-                <a href="#" className="text-navy/40 hover:text-brand transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
+                <div className="flex gap-3">
+                  <a href="https://whatsapp.com/channel/0029ValCH7y8vd1K0vQ7901A" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
+                    <MessageCircle className="w-5 h-5" />
+                  </a>
+                  <a href="https://www.instagram.com/mgce_kenya" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
               </motion.div>
             ))}
           </div>

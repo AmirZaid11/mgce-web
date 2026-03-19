@@ -137,3 +137,14 @@ export function getNewsCategories() {
   const categories = NEWS_ARTICLES.map(article => article.category);
   return ["All", ...Array.from(new Set(categories))];
 }
+
+export function getDailyNews(limit = 3) {
+  const today = new Date().toDateString();
+  const hash = today.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  
+  // Sort by date mostly, but then pick a window based on the day
+  const sorted = [...NEWS_ARTICLES].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  
+  const startIndex = hash % (Math.max(1, sorted.length - limit + 1));
+  return sorted.slice(startIndex, startIndex + limit);
+}

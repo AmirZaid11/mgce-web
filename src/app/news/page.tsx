@@ -5,11 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
-import { NEWS_ARTICLES, getNewsCategories } from "@/lib/news";
+import { NEWS_ARTICLES, getNewsCategories, getDailyNews } from "@/lib/news";
 
 export default function NewsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const categories = getNewsCategories();
+  const dailyNews = getDailyNews(3);
 
   const filteredNews = activeCategory === "All" 
     ? NEWS_ARTICLES 

@@ -1,202 +1,242 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { User, Lock, Mail, ArrowRight, Loader2, Sparkles } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sparkles, Send, MessageCircle, Quote, History, Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
 
-export default function CommunityAuthPage() {
-  const [isLogin, setIsLogin] = useState(true);
+export default function SistersVoicePage() {
+  const [content, setContent] = useState("");
+  const [type, setType] = useState<"story" | "quote">("story");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
-  const router = useRouter();
+  const [posts, setPosts] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleAuth = async (e: React.FormEvent<HTMLFormElement>) => {
+  const wordCount = content.trim() === "" ? 0 : content.trim().split(/\s+/).length;
+  const isMinLength = wordCount >= 200;
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    try {
+      // Fetch posts from the last 7 days
+      const oneWeekAgo = new Date();
+      oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+      
+      const { data, error } = await supabase
+        .from("anonymous_posts")
+        .select("*")
+        .gte("created_at", oneWeekAgo.toISOString())
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      setPosts(data || []);
+    } catch (err) {
+      console.error("Error fetching posts:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isMinLength) return;
+    
     setIsSubmitting(true);
     setMessage({ type: "", text: "" });
 
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
-    const username = formData.get("username") as string;
-
     try {
-      if (isLogin) {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
-        router.push("/community/dashboard");
-      } else {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { 
-            data: { username },
-            emailRedirectTo: `${window.location.origin}/community`
-          }
-        });
-        if (error) throw error;
-        setMessage({ type: "success", text: "Check your email for the confirmation link!" });
-      }
+      const { error } = await supabase
+        .from("anonymous_posts")
+        .insert([{ type, content, created_at: new Date().toISOString() }]);
+
+      if (error) throw error;
+
+      setMessage({ type: "success", text: "Your voice has been shared! It's now visible to the community." });
+      setContent("");
+      fetchPosts();
     } catch (err: any) {
-      // In mock without perfect credentials, we might fail. Allow a generic success for the sake of the demo
-      if (isLogin) {
-        setTimeout(() => router.push("/community/dashboard"), 1000);
-      } else {
-        setMessage({ type: "error", text: err.message || "An error occurred during authentication." });
-      }
+      setMessage({ type: "error", text: err.message || "Something went wrong. Please try again." });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handlePasswordReset = async () => {
-    const email = prompt("Enter your email address to receive a password reset link:");
-    if (email) {
-      try {
-        const { error } = await supabase.auth.resetPasswordForEmail(email, {
-          redirectTo: `${window.location.origin}/community/reset-password`,
-        });
-        if (error) throw error;
-        alert("Password reset link sent to your email.");
-      } catch (err) {
-        alert("Failed to send reset link. Try again later.");
-      }
-    }
-  };
-
   return (
-    <div className="flex flex-col w-full min-h-screen bg-cream items-center justify-center py-12 px-4">
-      <div className="w-full max-w-4xl bg-white rounded-3xl shadow-xl border border-border overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+    <div className="flex flex-col w-full min-h-screen bg-cream">
+      {/* Hero Section */}
+      <section className="bg-brand text-cream py-20 px-4 text-center relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl -z-0" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-navy/20 rounded-full blur-3xl -z-0" />
         
-        {/* Left Info Panel */}
-        <div className="md:w-5/12 bg-brand text-cream p-10 flex flex-col justify-between relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-light rounded-full blur-3xl opacity-30 mix-blend-screen -z-0" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold rounded-full blur-3xl opacity-20 mix-blend-screen -z-0" />
-          
-          <div className="relative z-10">
-            <h2 className="text-3xl font-heading font-bold mb-4 leading-tight">Join Our Global <span className="text-gold">Sisterhood</span></h2>
-            <p className="text-cream/80 text-sm leading-relaxed mb-8">
-              Connect with mentors, track your impact, and engage with a community of over 2,847 members strong dedicated to empowering the girl child.
+        <div className="container max-w-4xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-gold text-sm font-bold mb-6 border border-white/20">
+              <Sparkles className="w-4 h-4" />
+              <span>SISTERS&apos; VOICE</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">Share Your <span className="text-gold">Story</span>, Anonymously.</h1>
+            <p className="text-lg md:text-xl text-cream/90 max-w-2xl mx-auto mb-8">
+              A safe space for MGCE students and alumni to share quotes and stories. Your identity remains hidden, but your impact is felt by all.
             </p>
-          </div>
-          
-          <div className="relative z-10 p-6 bg-navy/20 backdrop-blur-sm rounded-2xl border border-cream/10 mt-auto">
-            <Sparkles className="w-6 h-6 text-gold mb-3" />
-            <p className="text-sm font-medium italic text-cream/90">&quot;Alone we can do so little; together we can do so much.&quot;</p>
-          </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild variant="gold" className="rounded-full shadow-lg h-12 px-8">
+                <a href="#share-form">Share Now</a>
+              </Button>
+              <Button asChild variant="outline" className="rounded-full h-12 px-8 border-cream/30 text-cream hover:bg-cream hover:text-brand">
+                <a href="https://whatsapp.com/channel/0029ValCH7y8vd1K0vQ7901A" target="_blank">Join WhatsApp Discussion</a>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="container py-20 px-4 max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
+        {/* Left Column: Form */}
+        <div className="lg:w-1/2" id="share-form">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-border sticky top-28"
+          >
+            <h2 className="text-2xl font-bold text-navy mb-2">Speak Your Truth</h2>
+            <p className="text-navy/60 mb-8 text-sm font-medium">Be bold, be you. Your name will never be shared.</p>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="flex p-1 bg-cream/50 rounded-xl border border-border w-full">
+                <button
+                  type="button"
+                  onClick={() => setType("story")}
+                  className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${type === "story" ? "bg-brand text-white shadow-md" : "text-navy/60 hover:text-navy"}`}
+                >
+                  <MessageCircle className="w-4 h-4" /> Story
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setType("quote")}
+                  className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${type === "quote" ? "bg-brand text-white shadow-md" : "text-navy/60 hover:text-navy"}`}
+                >
+                  <Quote className="w-4 h-4" /> Quote
+                </button>
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex justify-between items-end">
+                  <label className="text-xs font-bold text-navy uppercase tracking-widest pl-1">Your Content</label>
+                  <span className={`text-[10px] font-bold px-2 py-1 rounded-full ${isMinLength ? 'bg-laurel/20 text-laurel' : 'bg-red-50 text-red-500'}`}>
+                    {wordCount} / 200 words
+                  </span>
+                </div>
+                <textarea 
+                  required
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                  placeholder={type === "story" ? "Share your journey, challenges, or triumphs..." : "Share a quote that moves you..."}
+                  className="w-full h-64 p-5 bg-cream/50 border border-border rounded-2xl focus:outline-none focus:border-brand text-navy text-sm font-medium leading-relaxed resize-none shadow-inner"
+                />
+              </div>
+
+              {message.text && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`flex items-start gap-3 p-4 rounded-xl text-sm font-medium ${message.type === 'error' ? 'bg-red-50 text-red-600 border border-red-100' : 'bg-laurel/10 text-laurel border border-laurel/20'}`}
+                >
+                  {message.type === 'error' ? <AlertCircle className="w-5 h-5 flex-shrink-0" /> : <CheckCircle2 className="w-5 h-5 flex-shrink-0" />}
+                  <p>{message.text}</p>
+                </motion.div>
+              )}
+
+              <Button 
+                type="submit" 
+                disabled={isSubmitting || !isMinLength}
+                className="w-full h-14 rounded-2xl bg-brand hover:bg-brand-dark transition-all flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 disabled:grayscale"
+              >
+                {isSubmitting ? (
+                  <><Loader2 className="animate-spin w-5 h-5" /> Processing...</>
+                ) : (
+                  <>Share Anonymously <Send className="w-4 h-4 ml-1" /></>
+                )}
+              </Button>
+              
+              {!isMinLength && content.length > 0 && (
+                <p className="text-[11px] text-center text-red-400 font-bold italic">
+                  Keep going! A great story needs at least 200 words to inspire others.
+                </p>
+              )}
+            </form>
+          </motion.div>
         </div>
 
-        {/* Right Auth Panel */}
-        <div className="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
-          <div className="mb-8">
-            <h3 className="text-3xl font-heading font-bold text-navy mb-2">
-              {isLogin ? "Welcome Back" : "Create an Account"}
-            </h3>
-            <p className="text-navy/60">
-              {isLogin ? "Enter your details to access your dashboard." : "Sign up to start connecting and making an impact."}
-            </p>
+        {/* Right Column: Feed */}
+        <div className="lg:w-1/2">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-bold text-navy flex items-center gap-2">
+              <History className="w-6 h-6 text-brand" /> Recent Voices
+            </h2>
+            <div className="text-[10px] uppercase font-bold text-navy/40 tracking-widest bg-navy/5 px-3 py-1 rounded-full border border-navy/5">
+              Refreshed Daily
+            </div>
           </div>
 
-          {message.text && (
-            <div className={`p-4 rounded-xl mb-6 text-sm font-medium ${message.type === 'error' ? 'bg-red-50 text-red-600 border border-red-100' : 'bg-laurel/10 text-laurel border border-laurel/20'}`}>
-              {message.text}
-            </div>
-          )}
-
-          <form onSubmit={handleAuth} className="space-y-5">
-            {!isLogin && (
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-navy uppercase tracking-widest pl-1">Username</label>
-                <div className="relative">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-navy/40" />
-                  <input 
-                    name="username"
-                    type="text" 
-                    required={!isLogin}
-                    placeholder="johndoe"
-                    className="w-full pl-12 pr-4 py-3 bg-cream/50 border border-border rounded-xl focus:outline-none focus:border-brand text-navy text-sm font-medium"
-                  />
-                </div>
+          <div className="space-y-8">
+            {isLoading ? (
+              <div className="flex flex-col items-center justify-center py-20 bg-white rounded-3xl border border-border shadow-sm">
+                <Loader2 className="w-10 h-10 text-brand animate-spin mb-4" />
+                <p className="text-navy/40 font-bold text-sm">Gathering stories...</p>
               </div>
+            ) : posts.length === 0 ? (
+              <div className="text-center py-20 bg-white rounded-3xl border border-border shadow-sm">
+                <p className="text-navy/40 font-bold">No stories shared in the last week. Be the first!</p>
+              </div>
+            ) : (
+              posts.map((post, i) => (
+                <motion.div
+                  key={post.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-border relative group hover:shadow-md transition-all"
+                >
+                  <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    {post.type === 'quote' ? <Quote className="w-12 h-12" /> : <MessageCircle className="w-12 h-12" />}
+                  </div>
+                  
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md ${post.type === 'quote' ? 'bg-gold/20 text-navy' : 'bg-brand/10 text-brand'}`}>
+                      {post.type}
+                    </span>
+                    <span className="text-[10px] font-bold text-navy/40">
+                      {new Date(post.created_at).toLocaleDateString()}
+                    </span>
+                  </div>
+                  
+                  <p className="text-navy/80 text-base leading-relaxed whitespace-pre-wrap">
+                    {post.content}
+                  </p>
+                  
+                  <div className="mt-6 pt-6 border-t border-border flex justify-between items-center">
+                    <span className="text-[11px] font-bold text-navy/30 italic">— Anonymous Sister</span>
+                    <button className="text-brand/40 hover:text-brand transition-colors">
+                      <Sparkles className="w-4 h-4" />
+                    </button>
+                  </div>
+                </motion.div>
+              ))
             )}
             
-            <div className="space-y-2">
-              <label className="text-xs font-bold text-navy uppercase tracking-widest pl-1">Email</label>
-              <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-navy/40" />
-                <input 
-                  name="email"
-                  type="email" 
-                  required
-                  placeholder="name@example.com"
-                  className="w-full pl-12 pr-4 py-3 bg-cream/50 border border-border rounded-xl focus:outline-none focus:border-brand text-navy text-sm font-medium"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex justify-between items-center pr-1">
-                <label className="text-xs font-bold text-navy uppercase tracking-widest pl-1">Password</label>
-                {isLogin && (
-                  <button type="button" onClick={handlePasswordReset} className="text-xs font-bold text-brand hover:underline">
-                    Forgot password?
-                  </button>
-                )}
-              </div>
-              <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-navy/40" />
-                <input 
-                  name="password"
-                  type="password" 
-                  required
-                  placeholder="••••••••"
-                  minLength={6}
-                  className="w-full pl-12 pr-4 py-3 bg-cream/50 border border-border rounded-xl focus:outline-none focus:border-brand text-navy text-sm font-medium"
-                />
-              </div>
-            </div>
-
-            {!isLogin && (
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-navy uppercase tracking-widest pl-1">Confirm Password</label>
-                <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-navy/40" />
-                  <input 
-                    name="confirmPassword"
-                    type="password" 
-                    required={!isLogin}
-                    placeholder="••••••••"
-                    minLength={6}
-                    className="w-full pl-12 pr-4 py-3 bg-cream/50 border border-border rounded-xl focus:outline-none focus:border-brand text-navy text-sm font-medium"
-                  />
-                </div>
-              </div>
-            )}
-
-            <Button 
-              type="submit" 
-              disabled={isSubmitting}
-              className="w-full h-12 rounded-xl bg-brand hover:bg-brand-dark transition-colors flex items-center justify-center gap-2 mt-4"
-            >
-              {isSubmitting ? (
-                <><Loader2 className="mr-2 animate-spin w-5 h-5" /> Processing...</>
-              ) : (
-                <>{isLogin ? "Sign In" : "Create Account"} <ArrowRight className="w-4 h-4 ml-1" /></>
-              )}
-            </Button>
-          </form>
-
-          <div className="mt-8 text-center border-t border-border pt-6">
-            <p className="text-navy/60 text-sm font-medium">
-              {isLogin ? "Don't have an account?" : "Already have an account?"}
-              <button 
-                onClick={() => { setIsLogin(!isLogin); setMessage({type:'', text:''}); }} 
-                className="ml-2 text-brand font-bold hover:underline"
-              >
-                {isLogin ? "Sign up here" : "Login instead"}
-              </button>
+            <p className="text-center text-[10px] text-navy/30 font-bold uppercase tracking-widest mt-10">
+              Posts are automatically archived after 7 days
             </p>
           </div>
         </div>
