@@ -144,7 +144,7 @@ export default function AboutPage() {
                   <a href="https://whatsapp.com/channel/0029Vac4qi7I7BeEmwRCGT2n" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
                     <MessageCircle className="w-5 h-5" />
                   </a>
-                  <a href="https://www.instagram.com/mgce_kenya" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
+                  <a href="https://www.instagram.com/mgce.254?utm_source=qr&igsh=MWtoNG9sZWp0M3NwMg==" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
                     <Instagram className="w-5 h-5" />
                   </a>
                 </div>

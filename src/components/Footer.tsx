@@ -29,10 +29,10 @@ export default function Footer() {
             <Link href="https://whatsapp.com/channel/0029Vac4qi7I7BeEmwRCGT2n" className="text-cream/80 hover:text-gold transition-colors" title="WhatsApp Channel" target="_blank">
               <MessageCircle className="h-5 w-5" />
             </Link>
-            <Link href="https://www.tiktok.com/@mgce_kenya" className="text-cream/80 hover:text-gold transition-colors" title="TikTok" target="_blank">
+            <Link href="https://www.tiktok.com/@maseno.girl.child?_r=1&_t=ZS-94oUU6gkYZF" className="text-cream/80 hover:text-gold transition-colors" title="TikTok" target="_blank">
               <TikTokIcon className="h-5 w-5" />
             </Link>
-            <Link href="https://www.instagram.com/mgce_kenya" className="text-cream/80 hover:text-gold transition-colors" title="Instagram" target="_blank">
+            <Link href="https://www.instagram.com/mgce.254?utm_source=qr&igsh=MWtoNG9sZWp0M3NwMg==" className="text-cream/80 hover:text-gold transition-colors" title="Instagram" target="_blank">
               <Instagram className="h-5 w-5" />
             </Link>
             <Link href="https://www.facebook.com/mgcekenya" className="text-cream/80 hover:text-gold transition-colors" title="Facebook" target="_blank">
