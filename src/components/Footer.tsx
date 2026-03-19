@@ -63,7 +63,7 @@ export default function Footer() {
       </div>
       
       <div className="container pt-8 border-t border-cream/10 text-center text-xs text-cream/60">
-        <p>&copy; {new Date().getFullYear()} Maseno Girl Child Empowerment (MGCE). Founded 2022. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Maseno Girl Child Empowerment (MGCE). Founded 2024. All rights reserved.</p>
       </div>
     </footer>
   );
