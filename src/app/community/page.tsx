@@ -31,7 +31,10 @@ export default function CommunityAuthPage() {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { data: { username } }
+          options: { 
+            data: { username },
+            emailRedirectTo: `${window.location.origin}/community`
+          }
         });
         if (error) throw error;
         setMessage({ type: "success", text: "Check your email for the confirmation link!" });
@@ -52,7 +55,9 @@ export default function CommunityAuthPage() {
     const email = prompt("Enter your email address to receive a password reset link:");
     if (email) {
       try {
-        const { error } = await supabase.auth.resetPasswordForEmail(email);
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: `${window.location.origin}/community/reset-password`,
+        });
         if (error) throw error;
         alert("Password reset link sent to your email.");
       } catch (err) {
