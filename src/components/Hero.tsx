@@ -31,13 +31,41 @@ export default function Hero() {
           <span className="inline-block py-1 px-3 rounded-full bg-gold/20 text-gold-light border border-gold/30 text-sm font-bold tracking-wider mb-6">
             MASENO GIRL CHILD EMPOWERMENT
           </span>
-          <h1 className="text-5xl md:text-7xl font-heading font-bold text-cream mb-6 leading-tight">
-            Empowering the Girl Child, <br className="hidden md:block" />
-            <span className="text-gold">One Future at a Time</span>
+          <h1 className="text-5xl md:text-7xl font-heading font-bold text-cream mb-6 leading-tight flex flex-col items-center">
+            <div className="flex overflow-hidden">
+              {"Pride & Power".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: index * 0.05,
+                    ease: "easeOut"
+                  }}
+                  className="inline-block"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </div>
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="text-gold text-3xl md:text-5xl block mt-4"
+            >
+              Educate Her. Empower Her. Elevate Her
+            </motion.span>
           </h1>
-          <p className="text-lg md:text-2xl text-cream/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 1 }}
+            className="text-lg md:text-2xl text-cream/90 mb-10 max-w-2xl mx-auto leading-relaxed"
+          >
             We are dedicated to nurturing leadership, confidence, and independence in young women across Kenya through education, mentorship, and advocacy.
-          </p>
+          </motion.p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" variant="gold" asChild className="rounded-full w-full sm:w-auto hover:scale-105 transition-transform">

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import ImpactStats from "@/components/ImpactStats";
+import ImpactDashboard from "@/components/ImpactDashboard";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -27,7 +27,7 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      <ImpactStats />
+      <ImpactDashboard />
 
       <section className="py-24 bg-cream border-y border-border">
         <div className="container px-4 text-center">

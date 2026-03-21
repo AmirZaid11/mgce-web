@@ -23,7 +23,8 @@ export default function Footer() {
             <span className="font-heading font-bold text-xl text-gold">MGCE</span>
           </Link>
           <p className="text-sm text-cream/80 max-w-xs">
-            Empowering the Girl Child, One Future at a Time. Dedicated to transforming lives across Kenya through education, mentorship, and support.
+            Pride & Power. <br />
+            Educate Her. Empower Her. Elevate Her.
           </p>
           <div className="flex space-x-4 pt-2">
             <Link href="https://whatsapp.com/channel/0029Vac4qi7I7BeEmwRCGT2n" className="text-cream/80 hover:text-gold transition-colors" title="WhatsApp Channel" target="_blank">
@@ -64,15 +65,7 @@ export default function Footer() {
         <div>
           <h4 className="font-heading font-semibold text-lg text-gold mb-4">Newsletter</h4>
           <p className="text-sm text-cream/80 mb-4">Subscribe to get the latest updates on our impact.</p>
-          <form className="flex space-x-2" onSubmit={(e) => e.preventDefault()}>
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              required
-              className="px-3 py-2 bg-navy-dark border border-cream/20 rounded-md text-sm text-white focus:outline-none focus:border-gold w-full shadow-inner"
-            />
-            <Button type="submit" variant="gold" size="sm" className="shadow-md hover:shadow-lg transition-all">Subscribe</Button>
-          </form>
+          <NewsletterForm />
         </div>
       </div>
       
@@ -80,5 +73,45 @@ export default function Footer() {
         <p>&copy; {new Date().getFullYear()} Maseno Girl Child Empowerment (MGCE). Founded 2024. All rights reserved.</p>
       </div>
     </footer>
+  );
+}
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    // Simulate API call
+    setTimeout(() => {
+      setStatus("success");
+      setEmail("");
+    }, 1500);
+  };
+
+  if (status === "success") {
+    return (
+      <div className="bg-brand/20 p-4 rounded-xl border border-brand/30 text-center">
+        <p className="text-sm font-bold text-gold">Thank you for subscribing!</p>
+      </div>
+    );
+  }
+
+  return (
+    <form className="flex space-x-2" onSubmit={handleSubmit}>
+      <input 
+        type="email" 
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Your email address" 
+        required
+        disabled={status === "loading"}
+        className="px-3 py-3 bg-navy-dark border border-cream/20 rounded-xl text-sm text-white focus:outline-none focus:border-gold w-full shadow-inner disabled:opacity-50"
+      />
+      <Button type="submit" variant="gold" size="sm" className="shadow-md hover:shadow-lg transition-all rounded-xl" disabled={status === "loading"}>
+        {status === "loading" ? "..." : "Join"}
+      </Button>
+    </form>
   );
 }

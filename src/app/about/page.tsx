@@ -33,7 +33,7 @@ const founders = [
     name: "Liz Achieng",
     role: "Co-Founder",
     bio: "A passionate advocate for youth empowerment and mental health, Liz designs our core mentorship frameworks.",
-    image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/images/ceo2.jpeg"
   }
 ];
 
@@ -47,7 +47,8 @@ const leadership = [
   { name: "Nicole Harriet", title: "Mental Health Lead", image: "/images/pic5.jpeg" },
   { name: "Mudeizi Sharon", title: "Creative and Media Lead", image: "/images/pic6.jpeg" },
   { name: "Elizabeth Omolo", title: "Treasurer", image: "/images/pic7.jpeg" },
-  { name: "Laura Onyango", title: "Welfare and Support Coordinator", image: "/images/pic8.jpeg" }
+  { name: "Laura Onyango", title: "Welfare and Support Coordinator", image: "/images/pic8.jpeg" },
+  { name: "MARTHA ANYANGO", title: "PUBLIC RELATIONS", image: "/images/pi10.jpeg" }
 ];
 
 export default function AboutPage() {
@@ -58,7 +59,10 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-brand/90" />
         <div className="container relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">About MGCE</h1>
-          <p className="text-lg md:text-xl text-cream/90 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-cream/90 max-w-2xl mx-auto mb-4">
+            Pride & Power | Educate Her. Empower Her. Elevate Her
+          </p>
+          <p className="text-base text-cream/80 max-w-2xl mx-auto">
             Founded in 2024 the Maseno Girl Child Empowerment initiative is a registered NGO committed to breaking down barriers and creating pathways to success for girls in Kenya.
           </p>
         </div>
@@ -141,12 +145,60 @@ export default function AboutPage() {
                 <h4 className="font-bold text-navy mb-1">{leader.name}</h4>
                 <p className="text-xs font-medium text-brand text-center mb-3">{leader.title}</p>
                 <div className="flex gap-3">
-                  <a href="https://whatsapp.com/channel/0029Vac4qi7I7BeEmwRCGT2n" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
+                  <a href="https://wa.me/" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
                     <MessageCircle className="w-5 h-5" />
                   </a>
                   <a href="https://www.instagram.com/mgce.254?utm_source=qr&igsh=MWtoNG9sZWp0M3NwMg==" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
                     <Instagram className="w-5 h-5" />
                   </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Alumni Success Section */}
+      <section className="py-24 bg-white">
+        <div className="container px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-navy mb-4">Alumni Network</h2>
+            <p className="text-navy/60 max-w-2xl mx-auto">Our impact continues long after graduation. Meet some of the trailblazers who started here.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {[
+              { 
+                name: "Amina Juma", 
+                year: "Class of 2024", 
+                quote: "MGCE gave me the technical skills to launch my startup. I now employ three other women from my village.",
+                role: "Tech Entrepreneur"
+              },
+              { 
+                name: "Mercy Adhiambo", 
+                year: "Class of 2024", 
+                quote: "The mentorship program helped me navigate my university applications. I am now pursuing my Degree in Nursing.",
+                role: "Nursing Student"
+              }
+            ].map((alumni, i) => (
+              <motion.div
+                key={alumni.name}
+                initial={{ opacity: 0, x: i === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="bg-cream p-8 rounded-3xl border border-brand/10 relative group"
+              >
+                <div className="absolute top-0 right-0 -mt-2 -mr-2 bg-gold text-navy text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-md">
+                  Alumna
+                </div>
+                <p className="text-navy/80 italic mb-6 leading-relaxed">&quot;{alumni.quote}&quot;</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-brand/10 text-brand rounded-full flex items-center justify-center font-bold">
+                    {alumni.name[0]}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-navy">{alumni.name}</h4>
+                    <p className="text-xs text-brand/60">{alumni.role} • {alumni.year}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}

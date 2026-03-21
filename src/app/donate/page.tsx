@@ -139,7 +139,7 @@ export default function DonatePage() {
                   className="w-full h-16 text-xl rounded-xl bg-brand hover:bg-brand-dark transition-colors flex items-center justify-center gap-2"
                 >
                   <Lock className="w-5 h-5" /> 
-                  {isProcessing ? "Processing via Stripe..." : `Donate KES ${currentAmount.toLocaleString()}`}
+                  {isProcessing ? "Redirecting to Stripe..." : `Donate KES ${currentAmount.toLocaleString()}`}
                 </Button>
                 
                 <p className="text-center text-xs text-navy/50 flex items-center justify-center gap-1">

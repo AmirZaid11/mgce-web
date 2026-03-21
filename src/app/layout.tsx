@@ -8,13 +8,13 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
   title: 'MGCE | Maseno Girl Child Empowerment',
-  description: 'Empowering the Girl Child, One Future at a Time.',
+  description: 'Pride & Power | Educate Her. Empower Her. Elevate Her',
   icons: {
     icon: '/mgce.jpeg',
   },
   openGraph: {
     title: 'Maseno Girl Child Empowerment',
-    description: 'Empowering the Girl Child, One Future at a Time in Kenya.',
+    description: 'Pride & Power | Educate Her. Empower Her. Elevate Her',
     url: 'https://mgce.org',
     siteName: 'MGCE',
     images: [

@@ -11,9 +11,19 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/programs", label: "Programs" },
+  { href: "/events", label: "Events" },
+  { href: "/resources", label: "Resources" },
+  { href: "/community", label: "Community" },
   { href: "/news", label: "News" },
-  { href: "/quotes", label: "Quotes" },
   { href: "/impact", label: "Impact" },
+];
+
+const secondaryLinks = [
+  { href: "/sponsor", label: "Sponsor a Girl" },
+  { href: "/scholarships", label: "Scholarships" },
+  { href: "/mentorship", label: "Mentorship" },
+  { href: "/fundraise", label: "Fundraise" },
+  { href: "/volunteer", label: "Volunteer" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -36,14 +46,14 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden xl:flex items-center gap-6 text-[13px] font-bold uppercase tracking-wider">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
                 "transition-colors hover:text-brand",
-                pathname === link.href ? "text-brand font-bold" : "text-navy/70"
+                pathname === link.href ? "text-brand" : "text-navy/60"
               )}
             >
               {link.label}
@@ -51,12 +61,15 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
-          <Button asChild variant="gold" className="rounded-full shadow-sm hover:shadow-md transition-all">
-            <Link href="/donate">Donate Now</Link>
+        <div className="hidden md:flex items-center gap-3">
+          <Button asChild variant="outline" size="sm" className="hidden lg:flex rounded-full border-brand/20 text-brand text-xs">
+            <Link href="/sponsor">Sponsor</Link>
           </Button>
-          <Button asChild variant="default" className="rounded-full shadow-sm hover:shadow-md transition-all">
-            <Link href={WHATSAPP_LINK} target="_blank">Join Community</Link>
+          <Button asChild variant="gold" size="sm" className="rounded-full shadow-sm hover:shadow-md transition-all text-xs">
+            <Link href="/donate">Donate</Link>
+          </Button>
+          <Button asChild variant="default" size="sm" className="rounded-full shadow-sm hover:shadow-md transition-all text-xs">
+            <Link href={WHATSAPP_LINK} target="_blank">Community</Link>
           </Button>
         </div>
 
@@ -73,25 +86,22 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-cream border-b border-border p-4 space-y-4">
           <nav className="flex flex-col space-y-3">
-            {links.map((link) => (
+            {[...links, ...secondaryLinks].map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  "text-lg transition-colors hover:text-brand",
-                  pathname === link.href ? "text-brand font-bold" : "text-navy/70"
+                  "text-base font-bold transition-colors hover:text-brand",
+                  pathname === link.href ? "text-brand" : "text-navy/70"
                 )}
               >
                 {link.label}
               </Link>
             ))}
             <div className="h-px bg-border my-2" />
-            <Button asChild variant="gold" className="w-full justify-start" onClick={() => setIsOpen(false)}>
+            <Button asChild variant="gold" className="w-full justify-start rounded-xl" onClick={() => setIsOpen(false)}>
               <Link href="/donate">Donate Now</Link>
-            </Button>
-            <Button asChild variant="default" className="w-full justify-start" onClick={() => setIsOpen(false)}>
-              <Link href={WHATSAPP_LINK} target="_blank">Join Community</Link>
             </Button>
           </nav>
         </div>
