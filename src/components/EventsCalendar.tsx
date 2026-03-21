@@ -38,10 +38,35 @@ const events = [
 ];
 
 export default function EventsCalendar() {
+  const upcomingEvents = events.filter(e => new Date(e.date) >= new Date());
+
+  if (upcomingEvents.length === 0) {
+    return (
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="bg-white rounded-[2.5rem] p-12 text-center border border-border shadow-sm max-w-2xl mx-auto"
+      >
+        <div className="w-20 h-20 bg-brand/5 rounded-full flex items-center justify-center mx-auto mb-8">
+          <CalendarIcon className="w-10 h-10 text-brand/30" />
+        </div>
+        <h3 className="text-2xl font-bold text-navy mb-4">No Upcoming Events</h3>
+        <p className="text-navy/60 mb-8 leading-relaxed">
+          The event updating system is currently undergoing maintenance. 
+          Please check back later or subscribe to our newsletter for major announcements.
+        </p>
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 rounded-full text-gold text-xs font-bold uppercase tracking-widest border border-gold/20">
+          <Bell className="w-3 h-3" />
+          <span>Status: System Maintenance</span>
+        </div>
+      </motion.div>
+    );
+  }
+
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {events.map((event, i) => (
+        {upcomingEvents.map((event, i) => (
           <motion.div
             key={event.id}
             initial={{ opacity: 0, y: 20 }}
