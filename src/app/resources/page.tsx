@@ -13,7 +13,7 @@ const resources = [
     description: "A comprehensive guide on hygiene, reproductive health, and breaking social taboos.",
     type: "PDF Guide",
     icon: Heart,
-    downloadUrl: "/pdfs/men guide.pdf"
+    downloadUrl: "/pdfs/men-guide.pdf"
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const resources = [
     description: "Everything you need to gather and prepare for secondary and university scholarship applications.",
     type: "Checklist",
     icon: Lightbulb,
-    downloadUrl: "/pdfs/ds.pdf"
+    downloadUrl: "/pdfs/check.pdf"
   }
 ];
 
