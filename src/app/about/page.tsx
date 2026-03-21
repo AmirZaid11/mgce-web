@@ -38,7 +38,7 @@ const founders = [
 ];
 
 const leadership = [
-  { name: "Shalon Kimani", title: "Chair", image: "/images/pic1.jpeg" },
+  { name: "Anonymous User", title: "Chair", image: "/images/mgce.jpeg" },
   { name: "Shalon Kimani", title: "Vice Chair", image: "/images/pic9.jpeg" },
   { name: "Pauline Melvine", title: "Programmes Co-ordinator", image: "/images/pic1.jpeg" },
   { name: "Marian Loki", title: "Secretary", image: "/images/pic2.jpeg" },
@@ -148,7 +148,7 @@ export default function AboutPage() {
                   <a href="https://wa.me/" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
                     <MessageCircle className="w-5 h-5" />
                   </a>
-                  <a href="https://www.instagram.com/mgce.254?utm_source=qr&igsh=MWtoNG9sZWp0M3NwMg==" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
+                  <a href="https://www.instagram.com/" target="_blank" className="text-navy/40 hover:text-brand transition-colors">
                     <Instagram className="w-5 h-5" />
                   </a>
                 </div>
@@ -167,15 +167,15 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
-              { 
-                name: "Amina Juma", 
-                year: "Class of 2024", 
+              {
+                name: "Amina Juma",
+                year: "Class of 2024",
                 quote: "MGCE gave me the technical skills to launch my startup. I now employ three other women from my village.",
                 role: "Tech Entrepreneur"
               },
-              { 
-                name: "Mercy Adhiambo", 
-                year: "Class of 2024", 
+              {
+                name: "Mercy Adhiambo",
+                year: "Class of 2024",
                 quote: "The mentorship program helped me navigate my university applications. I am now pursuing my Degree in Nursing.",
                 role: "Nursing Student"
               }
