@@ -4,38 +4,7 @@ import { motion } from "framer-motion";
 import { Calendar as CalendarIcon, MapPin, Clock, ArrowRight, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const events = [
-  {
-    id: 1,
-    title: "Maseno Mentorship Camp 2026",
-    date: "2026-05-15",
-    time: "08:00 AM - 05:00 PM",
-    location: "Maseno University Hall",
-    category: "Mentorship",
-    description: "A 3-day intensive camp for high school girls focusing on leadership and career guidance.",
-    image: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-  },
-  {
-    id: 2,
-    title: "Digital Literacy Workshop",
-    date: "2026-06-02",
-    time: "10:00 AM - 02:00 PM",
-    location: "MGCE Resource Center",
-    category: "Technology",
-    description: "Hands-on training session on web design and digital marketing for young women.",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-  },
-  {
-    id: 3,
-    title: "Menstrual Health Advocacy Walk",
-    date: "2026-06-28",
-    time: "07:00 AM - 12:00 PM",
-    location: "Kisian Town Square",
-    category: "Health",
-    description: "Community walk to raise awareness and distribute dignity kits to rural schools.",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-  }
-];
+const events: any[] = [];
 
 export default function EventsCalendar() {
   const upcomingEvents = events.filter(e => new Date(e.date) >= new Date());
