@@ -7,7 +7,8 @@ import Footer from '@/components/Footer';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'MGCE | Maseno Girl Child Empowerment',
+  metadataBase: new URL('https://mgce.org'),
+  title: 'MGCE | Maseno Girl Child Empowerment - Pride & Power',
   description: 'Pride & Power | Educate Her. Empower Her. Elevate Her',
   icons: {
     icon: '/mgce.jpeg',
