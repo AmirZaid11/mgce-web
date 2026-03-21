@@ -55,7 +55,6 @@ export const NEWS_ARTICLES = [
     author: "Lilian Omondi"
   }
 ];
-];
 
 export function getNewsCategories() {
   const categories = NEWS_ARTICLES.map(article => article.category);
