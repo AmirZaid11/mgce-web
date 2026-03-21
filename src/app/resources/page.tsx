@@ -12,7 +12,8 @@ const resources = [
     category: "Health",
     description: "A comprehensive guide on hygiene, reproductive health, and breaking social taboos.",
     type: "PDF Guide",
-    icon: Heart
+    icon: Heart,
+    downloadUrl: "/pdfs/men guide.pdf"
   },
   {
     id: 2,
@@ -20,7 +21,8 @@ const resources = [
     category: "Education",
     description: "Learn the fundamentals of internet safety, email, and basic computer use.",
     type: "E-book",
-    icon: BookOpen
+    icon: BookOpen,
+    downloadUrl: "/pdfs/ds.pdf"
   },
   {
     id: 3,
@@ -28,7 +30,8 @@ const resources = [
     category: "Leadership",
     description: "Tools and techniques to help young girls find their voice and lead in their communities.",
     type: "Workshop Kit",
-    icon: Lightbulb
+    icon: Lightbulb,
+    downloadUrl: "/pdfs/advocacy.pdf"
   },
   {
     id: 4,
@@ -36,7 +39,8 @@ const resources = [
     category: "Education",
     description: "Everything you need to gather and prepare for secondary and university scholarship applications.",
     type: "Checklist",
-    icon: Lightbulb
+    icon: Lightbulb,
+    downloadUrl: "/pdfs/ds.pdf"
   }
 ];
 
@@ -99,9 +103,13 @@ export default function ResourcesPage() {
                 <p className="text-navy/60 text-sm mb-6 flex-1">{resource.description}</p>
                 <div className="flex items-center justify-between pt-6 border-t border-border">
                   <span className="text-[10px] font-black uppercase tracking-widest text-navy/30">{resource.type}</span>
-                  <button className="w-10 h-10 bg-cream text-brand rounded-full flex items-center justify-center hover:bg-brand hover:text-white transition-colors">
+                  <a 
+                    href={(resource as any).downloadUrl} 
+                    download 
+                    className="w-10 h-10 bg-cream text-brand rounded-full flex items-center justify-center hover:bg-brand hover:text-white transition-colors"
+                  >
                     <Download className="w-4 h-4" />
-                  </button>
+                  </a>
                 </div>
               </motion.div>
             ))}
