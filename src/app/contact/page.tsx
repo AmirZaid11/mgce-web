@@ -72,22 +72,22 @@ export default function ContactPage() {
                       <p>Maseno Town, Kisumu-Busia Highway<br/>P.O. Box 230 - 40105</p>
                     </div>
                   </div>
-                  <div className="flex items-center text-navy/80">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-border mr-6 shrink-0">
-                      <Phone className="text-brand w-5 h-5" />
+                  <a href="https://whatsapp.com/channel/0029Vac4qi7I7BeEmwRCGT2n" target="_blank" className="flex items-center text-navy/80 group">
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-border mr-6 shrink-0 group-hover:border-brand group-hover:text-brand transition-all">
+                      <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-navy mb-1">Phone</h4>
-                      <p>+254 700 000 000</p>
+                      <h4 className="font-bold text-navy mb-1 group-hover:text-brand transition-colors">WhatsApp</h4>
+                      <p>Join Our Channel</p>
                     </div>
-                  </div>
+                  </a>
                   <div className="flex items-center text-navy/80">
                     <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-border mr-6 shrink-0">
                       <Mail className="text-brand w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="font-bold text-navy mb-1">Email</h4>
-                      <p>info@mgce.org</p>
+                      <p className="italic text-navy/40">Coming Soon</p>
                     </div>
                   </div>
                 </div>

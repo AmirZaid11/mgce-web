@@ -106,74 +106,22 @@ export default function SistersVoicePage() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-border sticky top-28"
+            className="bg-white p-10 md:p-16 rounded-[2.5rem] shadow-xl border border-border sticky top-28 text-center"
           >
-            <h2 className="text-2xl font-bold text-navy mb-2">Speak Your Truth</h2>
-            <p className="text-navy/60 mb-8 text-sm font-medium">Be bold, be you. Your name will never be shared.</p>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="flex p-1 bg-cream/50 rounded-xl border border-border w-full">
-                <button
-                  type="button"
-                  onClick={() => setType("story")}
-                  className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${type === "story" ? "bg-brand text-white shadow-md" : "text-navy/60 hover:text-navy"}`}
-                >
-                  <MessageCircle className="w-4 h-4" /> Story
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setType("quote")}
-                  className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${type === "quote" ? "bg-brand text-white shadow-md" : "text-navy/60 hover:text-navy"}`}
-                >
-                  <Quote className="w-4 h-4" /> Quote
-                </button>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex justify-between items-end">
-                  <label className="text-xs font-bold text-navy uppercase tracking-widest pl-1">Your Content</label>
-                  <span className={`text-[10px] font-bold px-2 py-1 rounded-full ${isMinLength ? 'bg-laurel/20 text-laurel' : 'bg-red-50 text-red-500'}`}>
-                    {wordCount} / 200 words
-                  </span>
-                </div>
-                <textarea 
-                  required
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  placeholder={type === "story" ? "Share your journey, challenges, or triumphs..." : "Share a quote that moves you..."}
-                  className="w-full h-64 p-5 bg-cream/50 border border-border rounded-2xl focus:outline-none focus:border-brand text-navy text-sm font-medium leading-relaxed resize-none shadow-inner"
-                />
-              </div>
-
-              {message.text && (
-                <motion.div 
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className={`flex items-start gap-3 p-4 rounded-xl text-sm font-medium ${message.type === 'error' ? 'bg-red-50 text-red-600 border border-red-100' : 'bg-laurel/10 text-laurel border border-laurel/20'}`}
-                >
-                  {message.type === 'error' ? <AlertCircle className="w-5 h-5 flex-shrink-0" /> : <CheckCircle2 className="w-5 h-5 flex-shrink-0" />}
-                  <p>{message.text}</p>
-                </motion.div>
-              )}
-
-              <Button 
-                type="submit" 
-                disabled={isSubmitting || !isMinLength}
-                className="w-full h-14 rounded-2xl bg-brand hover:bg-brand-dark transition-all flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 disabled:grayscale"
-              >
-                {isSubmitting ? (
-                  <><Loader2 className="animate-spin w-5 h-5" /> Processing...</>
-                ) : (
-                  <>Share Anonymously <Send className="w-4 h-4 ml-1" /></>
-                )}
-              </Button>
-              
-              {!isMinLength && content.length > 0 && (
-                <p className="text-[11px] text-center text-red-400 font-bold italic">
-                  Keep going! A great story needs at least 200 words to inspire others.
-                </p>
-              )}
-            </form>
+            <div className="w-20 h-20 bg-brand/5 rounded-full flex items-center justify-center mx-auto mb-8">
+              <Sparkles className="w-10 h-10 text-brand/30" />
+            </div>
+            <h2 className="text-3xl font-bold text-navy mb-4">Sharing Simplified</h2>
+            <p className="text-navy/60 mb-8 leading-relaxed">
+              We are currently upgrading our anonymous sharing platform to provide an even safer and more interactive experience for our sisters.
+            </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 rounded-full text-gold text-xs font-bold uppercase tracking-widest border border-gold/20 mb-8">
+              <Loader2 className="w-3 h-3 animate-spin" />
+              <span>Coming Soon: New Sisters&apos; Hub</span>
+            </div>
+            <p className="text-sm font-medium text-navy/40 italic">
+              Registration and story submission will reopen shortly.
+            </p>
           </motion.div>
         </div>
 

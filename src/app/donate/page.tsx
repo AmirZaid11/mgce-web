@@ -47,105 +47,23 @@ export default function DonatePage() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             {/* Payment Form */}
-            <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-border">
-              <div className="flex items-center gap-3 mb-8 pb-8 border-b border-border">
-                <div className="w-12 h-12 bg-laurel/10 text-laurel rounded-full flex items-center justify-center">
-                  <Heart className="w-6 h-6 fill-current" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold font-heading text-navy">Make a Donation</h2>
-                  <p className="text-navy/60 text-sm">Secure payment powered by Stripe (Test Mode)</p>
-                </div>
+            <div className="lg:col-span-7 bg-white p-12 md:p-16 rounded-[2.5rem] shadow-xl border border-border text-center flex flex-col justify-center min-h-[500px]">
+              <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-8">
+                <Heart className="w-10 h-10 text-gold fill-current" />
               </div>
-
-              <form onSubmit={handleDonate} className="space-y-8">
-                {/* Amount Selection */}
-                <div>
-                  <h3 className="text-lg font-bold text-navy mb-4">Select Amount</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
-                    {presetAmounts.map((preset) => (
-                      <button
-                        key={preset.value}
-                        type="button"
-                        onClick={() => { setAmount(preset.value); setCustomAmount(""); }}
-                        className={`py-4 rounded-xl border-2 transition-all font-bold text-lg ${
-                          amount === preset.value
-                            ? "border-brand bg-brand/5 text-brand"
-                            : "border-border bg-transparent text-navy hover:border-brand/30 hover:bg-cream"
-                        }`}
-                      >
-                        {preset.label}
-                      </button>
-                    ))}
-                    <button
-                      type="button"
-                      onClick={() => setAmount("custom")}
-                      className={`py-4 px-4 rounded-xl border-2 transition-all font-bold text-lg ${
-                        amount === "custom"
-                          ? "border-brand bg-brand/5 text-brand"
-                          : "border-border bg-transparent text-navy hover:border-brand/30 hover:bg-cream"
-                      }`}
-                    >
-                      Custom
-                    </button>
-                  </div>
-
-                  {amount === "custom" && (
-                    <div className="relative mt-4">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-navy/50">KES</span>
-                      <input 
-                        type="number"
-                        min="100"
-                        step="100"
-                        value={customAmount}
-                        onChange={(e) => setCustomAmount(e.target.value)}
-                        placeholder="Enter amount"
-                        className="w-full text-lg font-bold text-navy pl-16 pr-4 py-4 rounded-xl border-2 border-brand bg-brand/5 focus:outline-none focus:ring-4 focus:ring-brand/10 transition-all"
-                        required
-                      />
-                    </div>
-                  )}
+              <h2 className="text-3xl font-heading font-bold text-navy mb-4">Investment Portal Opening Soon</h2>
+              <p className="text-navy/60 mb-10 text-lg leading-relaxed">
+                We are currently finalizing our secure direct-donation infrastructure to ensure every Shilling is tracked with 100% transparency.
+              </p>
+              <div className="flex flex-col items-center gap-6">
+                <div className="inline-flex items-center gap-2 px-6 py-3 bg-brand/5 rounded-full text-brand text-sm font-bold uppercase tracking-widest border border-brand/10">
+                  <Lock className="w-4 h-4" />
+                  <span>Stripe Integration Pending</span>
                 </div>
-
-                {/* Personal Info */}
-                <div className="space-y-4">
-                  <h3 className="text-lg font-bold text-navy">Your Information</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input 
-                      type="text" 
-                      placeholder="First Name" 
-                      required
-                      className="w-full px-4 py-3 bg-cream/50 border border-border rounded-xl focus:outline-none focus:border-brand text-navy"
-                    />
-                    <input 
-                      type="text" 
-                      placeholder="Last Name" 
-                      required
-                      className="w-full px-4 py-3 bg-cream/50 border border-border rounded-xl focus:outline-none focus:border-brand text-navy"
-                    />
-                  </div>
-                  <input 
-                    type="email" 
-                    placeholder="Email Address" 
-                    required
-                    className="w-full px-4 py-3 bg-cream/50 border border-border rounded-xl focus:outline-none focus:border-brand text-navy"
-                  />
-                </div>
-
-                {/* Submit button */}
-                <Button 
-                  type="submit" 
-                  disabled={isProcessing || currentAmount < 100}
-                  className="w-full h-16 text-xl rounded-xl bg-brand hover:bg-brand-dark transition-colors flex items-center justify-center gap-2"
-                >
-                  <Lock className="w-5 h-5" /> 
-                  {isProcessing ? "Redirecting to Stripe..." : `Donate KES ${currentAmount.toLocaleString()}`}
-                </Button>
-                
-                <p className="text-center text-xs text-navy/50 flex items-center justify-center gap-1">
-                  <CreditCard className="w-4 h-4" /> Payments are secure and encrypted.
+                <p className="text-navy/40 text-sm font-medium">
+                  Please check back next week to start your sponsorship journey.
                 </p>
-              </form>
+              </div>
             </div>
 
             {/* Impact Breakdown */}
