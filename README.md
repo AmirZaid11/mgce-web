@@ -54,6 +54,19 @@ To make the interactive features work (Community Auth, Contact Form, Admin Dashb
    -- Optional RLS
    alter table public.messages enable row level security;
    create policy "Enable insert for all users" on public.messages for insert with check (true);
+
+-- Anonymous Posts Table (Sisters' Voice)
+create table public.anonymous_posts (
+  id uuid default gen_random_uuid() primary key,
+  type text not null, -- 'story' or 'quote'
+  content text not null,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- RLS for Anonymous Posts
+alter table public.anonymous_posts enable row level security;
+create policy "Enable insert for all" on public.anonymous_posts for insert with check (true);
+create policy "Enable read for all" on public.anonymous_posts for select using (true);
    ```
 3. Update `.env.local` with your database credentials.
 
