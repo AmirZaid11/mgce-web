@@ -89,7 +89,4 @@ Then start the production server:
 npm run start
 ```
 
-## Design Aesthetic
-The application strictly follows the MGCE brand guidelines extracted from the official logo: Primary Purple (`#5B21B6`, `#7C3AED`), Gold Accent (`#D4AF37`), Navy (`#1E2937`), Cream (`#F8F1E9`), and Laurel (`#14532D`). Next/Image is used broadly for all optimized placeholder imagery.
 
-Thank you for empowering the girl child!
