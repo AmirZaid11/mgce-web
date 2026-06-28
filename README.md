@@ -1,6 +1,5 @@
 # MASENO GIRL CHILD EMPOWERMENT (MGCE) Website
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAmirZaid11%2Fmgce-web&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
 
 This is a complete, modern, production-ready multi-page website built for MGCE. 
